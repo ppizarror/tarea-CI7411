@@ -102,3 +102,26 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Archivos compilación latex
+*.aux
+*.lof
+*.lomycapequ
+*.lot
+*.out
+*.synctex.*
+*.toc
+*.log
+*.lol
+*.bbl
+*.blg
+
+# Archivos basura excel
+$*.xls*
+
+# Archivos residuales matlab
+*.asv
+
+# Ignora archivos IDE'S
+*.idea
+*.vscode
