@@ -66,7 +66,6 @@ E = zeros(n, 1);
 F = zeros(n, 1);
 E(1) = E1;
 F(1) = E1; % Por condicion de superficie libre
-
 for j = 1:n - 1
     E(j+1) = 0.5 * (E(j) * (1 + imp(j)) * exp(1i*k(j)*H(j)) + F(j) * (1 - imp(j)) * exp(-1i*k(j)*H(j)));
     F(j+1) = 0.5 * (E(j) * (1 - imp(j)) * exp(1i*k(j)*H(j)) + F(j) * (1 + imp(j)) * exp(-1i*k(j)*H(j)));
@@ -84,7 +83,7 @@ u = @(z, t) u_zt_nc(z, t, n, Hacum, E, F, k, w);
 
 end
 
-function u = u_zt_nc(z, t, n, H, E, F, k, w)
+function u = u_zt_nc(z, t, n, Hacum, E, F, k, w)
 % U_ZT_NC Funcion local que calcula el desplazamiento u(z,t) en un sistema
 % de capas conocido, E,F corresponden a los factores calculados por
 % u_multc, n numero de capas
@@ -102,10 +101,15 @@ function u = u_zt_nc(z, t, n, H, E, F, k, w)
 %% Obtiene el numero de la capa que corresponde a z
 nc = n; % Inicialmente es el semiespacio
 for j = 1:n - 1
-    if (z <= H(j))
+    if (z <= Hacum(j))
         nc = j;
         break;
     end
+end
+
+%% z se considera desde el inicio de la capa
+if nc > 1
+    z = z - Hacum(nc-1);
 end
 
 %% Calcula el valor de u(z,t) para la capa seleccionada
