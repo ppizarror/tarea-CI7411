@@ -14,10 +14,10 @@ function u = u_velt(rho, Vs, D, H, E1, T)
 
 %% Obtiene el numero de capas y verifica compatibilidad de datos
 n = length(rho);
-if (length(Vs) ~= n || length(D) ~= n)
+if length(Vs) ~= n || length(D) ~= n
     error('Vectores rho,Vs,D deben tener igual dimension (numero de capas)');
 end
-if (length(H) ~= n - 1)
+if length(H) ~= (n - 1)
     error('Vector H de altura de capas no debe considerar semiespacio');
 end
 
@@ -100,8 +100,8 @@ function u = u_zt_nc_velt(z, t, n, Hacum, E, F, k, w)
 
 %% Obtiene el numero de la capa que corresponde a z
 nc = n; % Inicialmente es el semiespacio
-for j = 1:n - 1
-    if (z <= Hacum(j))
+for j = 1:(n - 1)
+    if z <= Hacum(j)
         nc = j;
         break;
     end
