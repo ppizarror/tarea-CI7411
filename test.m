@@ -1,5 +1,5 @@
 %% Testeo multicapa 2 capas y semiespacio
-rho = [100, 17, 12];
+rho = [300, 17, 12];
 Vs = [150, 200, 1000];
 D = [0.1, 0.04, 0.05];
 H = [50, 55];
@@ -11,3 +11,6 @@ dt = 0.005;
 
 %% Genera el grafico
 quake(rho, Vs, D, H, E1, T, dh, dt);
+
+%% Borra las variables
+clear rho Vs D H E1 T dh dt;
