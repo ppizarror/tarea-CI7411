@@ -1,3 +1,6 @@
+% TEST P1
+% Estrato sobre semiespacio (roca)
+
 %% Testeo quake sistema elastico
 T = 0.2; % (s)
 H = 20; % (m)

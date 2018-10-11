@@ -1,7 +1,7 @@
 function u = u_velt(rho, Vs, D, H, E1, T)
 % U_VELT Retorna una funcion que permite obtener el desplazamiento t en una profundidad zj de un medio visco-elastico compuesto por varias capas 1..j.
 %
-%   u := u_velt([rho| rho2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..], E1, T)
+%   u := u_velt([rho1,rho2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..], E1, T)
 %   u(z,t) => u
 %
 % Parametros:
@@ -37,7 +37,7 @@ for i = 1:n
         error('Todas las componentes del vector de amortiguamiento (D) deben ser mayores o iguales a cero y menores que 1');
     end
 end
-for i = 1:n - 1
+for i = 1:(n - 1)
     if H(i) <= 0
         error('Todas las componentes del vector de alturas de capa (H) deben ser mayores a cero');
     end
@@ -57,7 +57,7 @@ k = w ./ nVs; % Numero de onda complejo (si D!=0)
 
 %% Calcula el vector de impedancias
 imp = zeros(n-1, 1);
-for i = 1:n - 1
+for i = 1:(n - 1)
     imp(i) = (rho(i) * nVs(i)) / (rho(i+1) * nVs(i+1));
 end
 
@@ -66,7 +66,7 @@ E = zeros(n, 1);
 F = zeros(n, 1);
 E(1) = E1;
 F(1) = E1; % Por condicion de superficie libre
-for j = 1:n - 1
+for j = 1:(n - 1)
     E(j+1) = 0.5 * (E(j) * (1 + imp(j)) * exp(1i*k(j)*H(j)) + F(j) * (1 - imp(j)) * exp(-1i*k(j)*H(j)));
     F(j+1) = 0.5 * (E(j) * (1 - imp(j)) * exp(1i*k(j)*H(j)) + F(j) * (1 + imp(j)) * exp(-1i*k(j)*H(j)));
 end
@@ -74,8 +74,8 @@ end
 %% Calcula las alturas acumuladas
 Hacum = zeros(n-1, 1);
 Hacum(1) = H(1);
-for j = 2:n - 1
-    Hacum(i) = Hacum(i-1) + H(i);
+for j = 2:(n - 1)
+    Hacum(j) = Hacum(j-1) + H(j);
 end
 
 %% Retorna la funcion de desplazamiento

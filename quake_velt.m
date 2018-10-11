@@ -1,5 +1,5 @@
 function quake_velt(rho, Vs, D, H, E1, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp, mult_umax, disp_legend)
-% QUAKE_VELT Genera un grafico de u(z,t) en funcion del tiempo, sistema multicapas viscoelástico.
+% QUAKE_VELT Genera un grafico de u(z,t) en funcion del tiempo, sistema multicapas viscoelastico.
 %
 % Parametros:
 %   rho             Vector densidad de cada capa, (n)
@@ -38,7 +38,7 @@ if ~exist('disp_legend', 'var')
 end
 
 %% Crea la funcion u(z,t)
-u = u_multc(rho, Vs, D, H, E1, T);
+u = u_velt(rho, Vs, D, H, E1, T);
 
 %% Crea puntos de evaluacion
 z = 0:dh:sum(H);
@@ -119,6 +119,7 @@ for i = 1:length(t)
     plot(real(u_)./u0, z./z0, 'b');
     hold on;
     plot(imag(u_)./u0, z./z0, 'r');
+    grid on;
     
     % Grafica las capas
     if plot_cp

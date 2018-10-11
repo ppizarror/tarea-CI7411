@@ -1,16 +1,23 @@
-%% Testeo multicapa 2 capas y semiespacio
-rho = [300, 17, 12];
-Vs = [150, 200, 1000];
-D = [0.1, 0.04, 0.05];
-H = [50, 55];
+% TEST P2
+% 4 capas sobre semiespacio (roca)
+
+%% Testeo multicapa 4 capas y semiespacio (roca)
+Vs = [180, 220, 110, 250, 1500]; % Velocidad onda de corte (m/s)
+rho = [15, 16.5, 17, 15, 27]; % Densidad kN/m3
+D = [0.08, 0.03, 0.02, 0.01, 0.005]; % Amortiguamiento (%)
+H = [10, 10, 10, 10]; % Altura de cada estrato (m)
 E1 = 1;
-T = 0.6;
+T = 0.3;
+
+% Vs = [180, 180, 180, 180, 200];
+% rho = [15, 15, 15, 15, 27];
+% D = [0.03, 0.03, 0.03, 0.03, 0.005];
 
 dh = 0.2;
-dt = 0.005;
+dt = 0.002;
 
 %% Genera el grafico
-quake(rho, Vs, D, H, E1, T, dh, dt);
+quake_velt(rho, Vs, D, H, E1, T, dh, dt);
 
 %% Borra las variables
 clear rho Vs D H E1 T dh dt;
