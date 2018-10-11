@@ -1,48 +1,25 @@
-function u = u_velt(rho, Vs, D, H, E1, T)
-% U_VELT Retorna una funcion que permite obtener el desplazamiento t en una profundidad zj de un medio visco-elastico compuesto por varias capas 1..j.
+function u = u_elt(Vs, H, ab, T)
+% U_ELT Retorna una funcion que permite obtener el desplazamiento t en una profundidad zj de un medio elastico de una sola capa.
 %
-%   u := u_velt([rho| rho2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..], E1, T)
-%   u(z,t) => u
+%   u := u_multc([G1,G2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..])
+%   u(zj,t) => u
 %
 % Parametros:
-%   rho     Vector densidad de cada capa, (n)
-%   Vs      Vector velocidad onda de corte cada capa, (n)
-%   D       Vector de razon de amortiguamiento (1/4pi), (n)
-%   H       Vector de altura cada capa, sin considerar semiespacio (n-1)
-%   E1      Primer valor de Ej, Fj
-%   T       Periodo de la onda
-
-%% Obtiene el numero de capas y verifica compatibilidad de datos
-n = length(rho);
-if (length(Vs) ~= n || length(D) ~= n)
-    error('Vectores rho,Vs,D deben tener igual dimension (numero de capas)');
-end
-if (length(H) ~= n - 1)
-    error('Vector H de altura de capas no debe considerar semiespacio');
-end
+%   Vs      Velocidad onda de corte
+%   H       Altura del estrato de suelo
+%   ab      Amplitud basal
+%   T       Periodo de la onda de corte
 
 %% Verifica valores de input
-for i = 1:n
-    if rho(i) <= 0
-        error('Todas las componentes del vector de densidad de capa (rho) deben ser mayores a 0');
-    end
+if Vs <= 0
+    error('La velocidad de onda de corte debe ser positiva');
 end
-for i = 1:n
-    if Vs(i) <= 0
-        error('Todas las componentes del vector de velocidad de onda de corte (Vs) deben ser mayores a 0');
-    end
+if H <= 0
+    error('La altura del estrato de suelo debe ser mayor a cero');
 end
-for i = 1:n
-    if D(i) > 1 || D(i) < 0
-        error('Todas las componentes del vector de amortiguamiento (D) deben ser mayores o iguales a cero y menores que 1');
-    end
+if ab <= 0
+    error('La amplitud basal debe ser mayor a cero');
 end
-for i = 1:n - 1
-    if H(i) <= 0
-        error('Todas las componentes del vector de alturas de capa (H) deben ser mayores a cero');
-    end
-end
-if 
 
 %% Calcula propiedades N capas (Kelvin-Voigt)
 nVs = Vs .* sqrt(1+2*1i*D); % Velocidad onda de corte compleja (si D!=0)
