@@ -26,6 +26,9 @@ end
 
 %% Calcula la frecuencia
 w = 2 * pi / T;
+if cos(w*H/Vs) == 0
+    error('El periodo de la onda genera resonancia');
+end
 
 %% Retorna la funcion de desplazamiento
 u = @(z, t) (ab / cos(w*H/Vs)) * exp(1i*w*t) * cos(w*z/Vs);

@@ -1,5 +1,5 @@
-function quake_velt(Vs, H, ab, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp, mult_umax, disp_legend)
-% QUAKE_VELT Genera un grafico de u(z,t) en funcion del tiempo, sistema elastico, un solo estrato.
+function quake_elt(Vs, H, ab, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp, mult_umax, disp_legend)
+% QUAKE_ELT Genera un grafico de u(z,t) en funcion del tiempo, sistema elastico, un solo estrato.
 %
 % Parametros:
 %   Vs              Velocidad onda de corte
@@ -29,7 +29,7 @@ if ~exist('plot_maxp', 'var')
     plot_maxp = true;
 end
 if ~exist('mult_umax', 'var')
-    mult_umax = 1.2;
+    mult_umax = 2.0;
 end
 if ~exist('disp_legend', 'var')
     disp_legend = false;
@@ -117,6 +117,7 @@ for i = 1:length(t)
     plot(real(u_)./u0, z./z0, 'b');
     hold on;
     plot(imag(u_)./u0, z./z0, 'r');
+    grid on;
     
     % Grafica las capas
     if plot_cp
