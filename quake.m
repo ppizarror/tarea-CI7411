@@ -1,10 +1,5 @@
 function quake(G, Vs, D, H, E1, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp)
-% U_MULTC Retorna una funcion que permite obtener el desplazamiento t en
-% una profundidad zj de un medio visco-elastico compuesto por varias capas
-% 1..j
-%
-%   u := u_multc([G1,G2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..])
-%   u(zj,t) => u
+% QUAKE Genera un grafico de u(z,t) en funcion del tiempo.
 %
 % Parametros:
 %   G               Vector del modulo de corte de cada capa, (n)
@@ -57,6 +52,7 @@ for i = 1:length(mt)
         uhh = max(uhh, max(abs(u(z(end), mt(i)))));
     end
 end
+u0=uhh;
 z0 = max(z);
 if plot_normalize
     uh0 = uh0 / u0;
@@ -98,14 +94,15 @@ if ~plot_normalize
     plot_ylabel = 'z';
 end
 
-% Escribe el grafico para cada t
+%% Escribe u(z,t) grafico para cada t
 u_ = zeros(length(z), 1);
 
 for i = 1:length(t)
     
     % Si el usuario cierra el plot termina de graficar
     if ~ishandle(plt)
-        break;
+        delete(plt);
+        return;
     end
     
     % Calcula el desplazamiento
@@ -143,11 +140,7 @@ for i = 1:length(t)
     % Pausa
     pause(plot_pause);
     hold off;
-    
-    % Si el usuario cierra el plot termina de graficar
-    if ~ishandle(plt)
-        break;
-    end
+
 end
 
 end

@@ -1,7 +1,7 @@
 function u = u_multc(G, Vs, D, H, E1, T)
 % U_MULTC Retorna una funcion que permite obtener el desplazamiento t en
 % una profundidad zj de un medio visco-elastico compuesto por varias capas
-% 1..j
+% 1..j.
 %
 %   u := u_multc([G1,G2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..])
 %   u(zj,t) => u
