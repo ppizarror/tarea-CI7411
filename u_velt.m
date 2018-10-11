@@ -42,7 +42,12 @@ for i = 1:n - 1
         error('Todas las componentes del vector de alturas de capa (H) deben ser mayores a cero');
     end
 end
-if 
+if E1 <= 0
+    error('E1 debe ser mayor a cero');
+end
+if T <= 0
+    error('El periodo de la onda debe ser mayor a cero')
+end
 
 %% Calcula propiedades N capas (Kelvin-Voigt)
 nVs = Vs .* sqrt(1+2*1i*D); % Velocidad onda de corte compleja (si D!=0)
