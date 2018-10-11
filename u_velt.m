@@ -1,4 +1,4 @@
-function u = u_multc(rho, Vs, D, H, E1, T)
+function u = u_velt(rho, Vs, D, H, E1, T)
 % U_MULTC Retorna una funcion que permite obtener el desplazamiento t en una profundidad zj de un medio visco-elastico compuesto por varias capas 1..j.
 %
 %   u := u_multc([G1,G2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..])
@@ -76,14 +76,14 @@ for j = 2:n - 1
 end
 
 %% Retorna la funcion de desplazamiento
-u = @(z, t) u_zt_nc(z, t, n, Hacum, E, F, k, w);
+u = @(z, t) u_zt_nc_velt(z, t, n, Hacum, E, F, k, w);
 
 end
 
-function u = u_zt_nc(z, t, n, Hacum, E, F, k, w)
+function u = u_zt_nc_velt(z, t, n, Hacum, E, F, k, w)
 % U_ZT_NC Funcion local que calcula el desplazamiento u(z,t) en un sistema
 % de capas conocido, E,F corresponden a los factores calculados por
-% u_multc, n numero de capas
+% u_multc, n numero de capas.
 %
 % Parametros
 %   z       Valor de zj donde se evalua

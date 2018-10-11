@@ -1,4 +1,4 @@
-function quake_multc(rho, Vs, D, H, E1, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp, mult_umax, disp_legend)
+function quake_velt(rho, Vs, D, H, E1, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp, mult_umax, disp_legend)
 % QUAKE Genera un grafico de u(z,t) en funcion del tiempo, sistema multicapas viscoelástico.
 %
 % Parametros:
