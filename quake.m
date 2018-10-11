@@ -1,8 +1,8 @@
-function quake(G, Vs, D, H, E1, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp)
+function quake(rho, Vs, D, H, E1, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp)
 % QUAKE Genera un grafico de u(z,t) en funcion del tiempo.
 %
 % Parametros:
-%   G               Vector del modulo de corte de cada capa, (n)
+%   rho             Vector densidad de cada capa, (n)
 %   Vs              Vector velocidad onda de corte cada capa, (n)
 %   D               Vector de razon de amortiguamiento (1/4pi), (n)
 %   H               Vector de altura cada capa, sin considerar semiespacio (n-1)
@@ -30,7 +30,7 @@ if ~exist('plot_maxp', 'var')
 end
 
 %% Crea la funcion u(z,t)
-u = u_multc(G, Vs, D, H, E1, T);
+u = u_multc(rho, Vs, D, H, E1, T);
 
 %% Crea puntos de evaluacion
 z = 0:dh:sum(H);
@@ -102,6 +102,7 @@ for i = 1:length(t)
     % Si el usuario cierra el plot termina de graficar
     if ~ishandle(plt)
         delete(plt);
+        close; % Cierra el grafico
         return;
     end
     

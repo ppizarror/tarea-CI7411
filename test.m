@@ -1,5 +1,5 @@
 %% Testeo multicapa 2 capas y semiespacio
-G = [500, 20, 35];
+rho = [100, 17, 12];
 Vs = [150, 200, 1000];
 D = [0.1, 0.04, 0.05];
 H = [50, 55];
@@ -10,4 +10,4 @@ dh = 0.2;
 dt = 0.005;
 
 %% Genera el grafico
-quake(G, Vs, D, H, E1, T, dh, dt);
+quake(rho, Vs, D, H, E1, T, dh, dt);

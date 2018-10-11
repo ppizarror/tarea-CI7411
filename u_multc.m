@@ -1,4 +1,4 @@
-function u = u_multc(G, Vs, D, H, E1, T)
+function u = u_multc(rho, Vs, D, H, E1, T)
 % U_MULTC Retorna una funcion que permite obtener el desplazamiento t en
 % una profundidad zj de un medio visco-elastico compuesto por varias capas
 % 1..j.
@@ -7,7 +7,7 @@ function u = u_multc(G, Vs, D, H, E1, T)
 %   u(zj,t) => u
 %
 % Parametros:
-%   G       Vector del modulo de corte de cada capa, (n)
+%   rho     Vector densidad de cada capa, (n)
 %   Vs      Vector velocidad onda de corte cada capa, (n)
 %   D       Vector de razon de amortiguamiento (1/4pi), (n)
 %   H       Vector de altura cada capa, sin considerar semiespacio (n-1)
@@ -15,9 +15,9 @@ function u = u_multc(G, Vs, D, H, E1, T)
 %   T       Periodo de la onda
 
 %% Obtiene el numero de capas y verifica compatibilidad de datos
-n = length(G);
+n = length(rho);
 if (length(Vs) ~= n || length(D) ~= n)
-    error('Vectores G,Vs,D deben tener igual dimension (numero de capas)');
+    error('Vectores rho,Vs,D deben tener igual dimension (numero de capas)');
 end
 if (length(H) ~= n - 1)
     error('Vector H de altura de capas no debe considerar semiespacio');
@@ -25,8 +25,8 @@ end
 
 %% Verifica valores de input
 for i = 1:n
-    if (G(i) <= 0)
-        error('Todas las componentes del vector de modulo de corte (G) deben ser mayores a 0');
+    if (rho(i) <= 0)
+        error('Todas las componentes del vector de densidad de capa (rho) deben ser mayores a 0');
     end
 end
 
@@ -49,9 +49,8 @@ for i = 1:n - 1
 end
 
 %% Calcula propiedades N capas (Kelvin-Voigt)
-nG = G .* (1 + 2 * 1i * D); % Modulo de corte complejo (si D!=0)
 nVs = Vs .* sqrt(1+2*1i*D); % Velocidad onda de corte compleja (si D!=0)
-rho = nG ./ (nVs .* nVs); % Calcula la densidad
+nG = nVs .* nVs .* rho; %#ok<NASGU> % Modulo de corte complejo (si D!=0)
 w = 2 * pi / T; % Frecuencia
 k = w ./ nVs; % Numero de onda complejo (si D!=0)
 
