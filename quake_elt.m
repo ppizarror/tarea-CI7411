@@ -54,6 +54,7 @@ for i = 1:length(mt)
     us = max(us, max(abs(u(z(1), mt(i)))));
     u0 = max(u0, max(abs(u(z(end), mt(i)))));
 end
+ft = us / u0;
 z0 = max(z);
 if plot_normalize % Normaliza por u0
     us = us / u0;
@@ -140,7 +141,7 @@ for i = 1:length(t)
     ylim([0, zz]);
     xlabel(plot_xlabel, 'interpreter', 'latex');
     ylabel(plot_ylabel, 'interpreter', 'latex');
-    title('Quake | Re(u): azul, Im(u): rojo', 'interpreter', 'latex');
+    title(sprintf('Quake | Re(u):azul, Im(u):rojo | FT: %.3f', ft), 'interpreter', 'latex');
     if disp_legend
         legend({'Re(u(z,t))', 'Im(u(z,t))'}, 'Location', 'southwest');
     end

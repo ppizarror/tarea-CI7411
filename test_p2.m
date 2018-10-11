@@ -2,10 +2,10 @@
 % 4 capas sobre semiespacio (roca)
 
 %% Testeo multicapa 4 capas y semiespacio (roca)
-Vs = [180, 220, 110, 250, 1500]; % Velocidad onda de corte (m/s)
+Vs = [100, 220, 700, 250, 1500]; % Velocidad onda de corte (m/s)
 rho = [15, 16.5, 17, 15, 27]; % Densidad kN/m3
-D = [0.08, 0.03, 0.02, 0.01, 0.005]; % Amortiguamiento (%)
-H = [10, 10, 10, 10]; % Altura de cada estrato (m)
+D = [0.01, 0.03, 0.02, 0.01, 0.005]; % Amortiguamiento (%)
+H = [10, 5, 15, 10]; % Altura de cada estrato (m)
 E1 = 1;
 T = 0.3;
 
