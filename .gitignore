@@ -125,3 +125,7 @@ $*.xls*
 # Ignora archivos IDE'S
 *.idea
 *.vscode
+
+# Archivo residual excel
+~*.doc*
+~*.xls*
