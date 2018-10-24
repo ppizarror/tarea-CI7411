@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuraciones finales
-% Versión:      6.0.0 (13/10/2018)
+% Versión:      6.0.2 (22/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -8,28 +8,36 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Manual template: [http://latex.ppizarror.com/Template-Informe/]
+% Manual template: [https://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 \markboth{}{}
 \newpage
-\ifthenelse{\equal{\hfstyle}{style1}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style2}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style4}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style5}}{
-	\fancyhead[R]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style9}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
-}
-\ifthenelse{\equal{\hfstyle}{style10}}{
-	\fancyhead[L]{\nouppercase{\leftmark}}}{
+\ifthenelse{\equal{\disablehfrightmark}{false}}{
+	\ifthenelse{\equal{\hfstyle}{style1}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style2}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style4}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style5}}{
+		\fancyhead[R]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style9}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+	\ifthenelse{\equal{\hfstyle}{style10}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+\ifthenelse{\equal{\hfstyle}{style11}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}
+\ifthenelse{\equal{\hfstyle}{style14}}{
+		\fancyhead[L]{\nouppercase{\leftmark}}}{
+	}}{
 }
 \sectionfont{\color{\titlecolor} \fontsizetitle \styletitle \selectfont}
 \subsectionfont{\color{\subtitlecolor} \fontsizesubtitle \stylesubtitle \selectfont}

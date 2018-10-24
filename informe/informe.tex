@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Archivo principal
-% Versión:      6.0.0 (13/10/2018)
+% Versión:      6.0.2 (22/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -8,7 +8,7 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Manual template: [http://latex.ppizarror.com/Template-Informe/]
+% Manual template: [https://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 % CREACIÓN DEL DOCUMENTO
@@ -26,7 +26,7 @@
 \def\nombreuniversidad {Universidad de Chile}
 \def\nombrefacultad {Facultad de Ciencias Físicas y Matemáticas}
 \def\departamentouniversidad {Departamento de Ingeniería Civil}
-\def\imagendepartamento {dic}
+\def\imagendepartamento {departamentos/dic}
 \def\imagendepartamentoescala {0.2}
 \def\localizacionuniversidad {Santiago, Chile}
 
@@ -79,18 +79,25 @@
 \begin{document}
 
 % PORTADA
-\input{lib/page/portrait}
+\input{lib/page/portrait} % Se puede borrar
 
 % CONFIGURACIÓN DE PÁGINA Y ENCABEZADOS
 \input{lib/cfg/page}
 
+% RESUMEN O ABSTRACT
+\begin{resumen}
+	\lipsum[1] % Párrafo ejemplo, se puede borrar
+\end{resumen}
+
 % TABLA DE CONTENIDOS - ÍNDICE
-\input{lib/page/index} % Índice, se puede borrar
+\input{lib/page/index} % Se puede borrar
 
 % CONFIGURACIONES FINALES
 \input{lib/cfg/final}
 
 % ======================= INICIO DEL DOCUMENTO =======================
+
+\input{lib/etc/example} % Ejemplo, se puede borrar
 
 % FIN DEL DOCUMENTO
 \end{document}

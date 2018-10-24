@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Definición de entornos
-% Versión:      6.0.0 (13/10/2018)
+% Versión:      6.0.2 (22/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -8,43 +8,43 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Manual template: [http://latex.ppizarror.com/Template-Informe/]
+% Manual template: [https://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 \newenvironment{references}{
-	\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
+\ifthenelse{\equal{\stylecitereferences}{bibtex}}{
 	}{
 		\throwerror{\references}{Solo se puede usar entorno references con estilo citas \noexpand\stylecitereferences=bibtex}
 	}
 	\begingroup
-	\ifthenelse{\equal{\donumrefsection}{true}}{
+\ifthenelse{\equal{\donumrefsection}{true}}{
 		\section{\namereferences}
 	}{
 		\sectionanum{\namereferences}
 	}
 	\renewcommand{\section}[2]{}
-	\begin{thebibliography}{99}
+\begin{thebibliography}{99}
 	}
 	{
 	\end{thebibliography}
-	\endgroup
+\endgroup
 }
 \newenvironment{anexo}{
-	\begingroup
+\begingroup
 	\clearpage
 	\phantomsection
 	\ifthenelse{\equal{\showappendixsectitle}{true}}{
 		\appendixpage}{
 	}
-	\def\GLOBALsectionalph{true}
-	\appendixtitleon
+\def\GLOBALsectionalph{true}
+\appendixtitleon
 	\appendicestocpagenum
 	\appendixtitletocon
 	\bookmarksetup{
 		numbered,
 		openlevel=0
 	}
-	\begin{appendices}
+\begin{appendices}
 		\bookmarksetupnext{level=part}
 		\ifthenelse{\equal{\showappendixsecindex}{true}}{}{
 			\belowpdfbookmark{\nameappendixsection}{contents}
@@ -59,8 +59,8 @@
 		}
 	}{
 	\end{appendices}
-	\def\GLOBALsectionalph{false}
-	\bookmarksetupnext{level=0}
+\def\GLOBALsectionalph{false}
+\bookmarksetupnext{level=0}
 	\endgroup
 }
 \newcommand{\coreinitsourcecodep}[4]{

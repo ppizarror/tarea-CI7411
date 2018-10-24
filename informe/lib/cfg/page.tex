@@ -1,6 +1,6 @@
 % Template:     Informe/Reporte LaTeX
 % Documento:    Configuración de página
-% Versión:      6.0.0 (13/10/2018)
+% Versión:      6.0.2 (22/10/2018)
 % Codificación: UTF-8
 %
 % Autor: Pablo Pizarro R. @ppizarror
@@ -8,7 +8,7 @@
 %        Universidad de Chile
 %        pablo.pizarro@ing.uchile.cl, ppizarror.com
 %
-% Manual template: [http://latex.ppizarror.com/Template-Informe/]
+% Manual template: [https://latex.ppizarror.com/Template-Informe/]
 % Licencia MIT:    [https://opensource.org/licenses/MIT/]
 
 \newpage
@@ -43,7 +43,9 @@
 \titlespacing*{\subsubsubsection}{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 \ifthenelse{\equal{\hfstyle}{style1}}{
 	\pagestyle{fancy} \fancyhf{}
-	\fancyhead[L]{\nouppercase{\rightmark}}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[L]{\nouppercase{\rightmark}}
+	}{}
 	\fancyhead[R]{\small \rm \thepage}
 	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
 	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
@@ -53,7 +55,9 @@
 }{
 \ifthenelse{\equal{\hfstyle}{style2}}{
 	\pagestyle{fancy} \fancyhf{}
-	\fancyhead[L]{\nouppercase{\rightmark}}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[L]{\nouppercase{\rightmark}}
+	}{}
 	\fancyhead[R]{\small \rm \thepage}
 	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
 	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
@@ -77,7 +81,9 @@
 }{
 \ifthenelse{\equal{\hfstyle}{style4}}{
 	\pagestyle{fancy} \fancyhf{}
-	\fancyhead[L]{\nouppercase{\rightmark}}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[L]{\nouppercase{\rightmark}}
+	}{}
 	\fancyhead[R]{}
 	\fancyfoot[C]{\small \rm \thepage}
 	\renewcommand{\headrulewidth}{0.5pt}
@@ -87,7 +93,9 @@
 \ifthenelse{\equal{\hfstyle}{style5}}{
 	\pagestyle{fancy} \fancyhf{}
 	\fancyhead[L]{\codigodelcurso \nombredelcurso}
-	\fancyhead[R]{\nouppercase{\rightmark}}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[R]{\nouppercase{\rightmark}}
+	}{}
 	\fancyfoot[L]{\departamentouniversidad, \nombreuniversidad}
 	\fancyfoot[R]{\small \rm \thepage}
 	\renewcommand{\headrulewidth}{0pt}
@@ -119,7 +127,9 @@
 }{
 \ifthenelse{\equal{\hfstyle}{style9}}{
 	\pagestyle{fancy} \fancyhf{}
-	\fancyhead[L]{\nouppercase{\rightmark}}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[L]{\nouppercase{\rightmark}}
+	}{}
 	\fancyhead[R]{}
 	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
 	\fancyfoot[R]{\small \rm \thepage}
@@ -129,7 +139,9 @@
 }{
 \ifthenelse{\equal{\hfstyle}{style10}}{
 	\pagestyle{fancy} \fancyhf{}
-	\fancyhead[L]{\nouppercase{\rightmark}}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[L]{\nouppercase{\rightmark}}
+	}{}
 	\fancyhead[R]{\small \rm \textit{\titulodelinforme}}
 	\fancyfoot[L]{}
 	\fancyfoot[R]{\small \rm \thepage}
@@ -139,7 +151,9 @@
 }{
 \ifthenelse{\equal{\hfstyle}{style11}}{
 	\pagestyle{fancy} \fancyhf{}
-	\fancyhead[L]{\nouppercase{\rightmark}}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[L]{\nouppercase{\rightmark}}
+	}{}
 	\fancyhead[R]{\small \rm \thepage \nomnpageof \pageref{LastPage}}
 	\fancyfoot[L]{\small \rm \textit{\titulodelinforme}}
 	\fancyfoot[R]{\small \rm \textit{\codigodelcurso \nombredelcurso}}
@@ -172,7 +186,9 @@
 }{
 \ifthenelse{\equal{\hfstyle}{style14}}{
 	\pagestyle{fancy} \fancyhf{}
-	\fancyhead[L]{\nouppercase{\rightmark}}
+	\ifthenelse{\equal{\disablehfrightmark}{false}}{
+		\fancyhead[L]{\nouppercase{\rightmark}}
+	}{}
 	\fancyhead[R]{}
 	\fancyfoot[C]{\small \rm \thepage \nomnpageof \pageref{LastPage}}
 	\renewcommand{\headrulewidth}{0.5pt}
