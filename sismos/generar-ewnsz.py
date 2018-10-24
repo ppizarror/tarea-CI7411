@@ -18,22 +18,26 @@ for i in f:
 f.close()  # Cierra el archivo
 
 # Carga los principales datos
-hz = int(data[8].replace('Sample rate: ','').replace(' Hz','').strip())
-samplenum = int(data[9].replace('Sample number: ','').strip())
+hz = int(data[8].replace('Sample rate: ', '').replace(' Hz', '').strip())
+samplenum = int(data[9].replace('Sample number: ', '').strip())
 dt = 1.0/hz
 
 # Genera el ew
-def writedata(m,col):
-    nfm = filename + m #Nombre del archivo
+
+
+def writedata(m, col):
+    nfm = filename + m  # Nombre del archivo
     if '.txt' not in nfm:
         nfm += '.txt'
-    f = open(nfm,'w')
-    f.write('{0}\t{1}\n'.format(samplenum,dt))
+    f = open(nfm, 'w')
+    f.write('{0}\t{1}\n'.format(samplenum, dt))
     for i in range(samplenum):
-        f.write('{0}\t{1}'.format(dt*(i+1),data[i+15].strip().split('\t')[col]))
-        if(i<samplenum-1):
+        f.write('{0}\t{1}'.format(
+            dt*(i+1), data[i+15].strip().split('\t')[col]))
+        if(i < samplenum-1):
             f.write('\n')
 
-writedata('-ew',0)
+
+writedata('-ew', 0)
 writedata('-ns', 1)
 writedata('-z', 2)

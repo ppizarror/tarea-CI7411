@@ -11,17 +11,17 @@ data = []
 f = open(filename)
 for i in f:
     data.append(i.strip())
-f.close() # Cierra el archivo
+f.close()  # Cierra el archivo
 
 # Guarda el archivo sin el strip
 u = open(filename, 'w')
-k = 1 # Número de línea
+k = 1  # Número de línea
 for i in data:
-    if (k>=16):
+    if (k >= 16):
         i = i.replace('  ', ' ')
         i = i.replace(' ', '\t')
     u.write(i+'\n')
-    k+=1
+    k += 1
 
 # Cierra el archivo
 u.close()
