@@ -5,7 +5,7 @@
 
 \subsectionanum{Teoría}
 
-Considérese un depósito de suelo conformado por capas perfectamente horizontales y de extensión infinita, tal como se indica en la Figura
+Considérese un depósito de suelo conformado por capas perfectamente horizontales y de extensión infinita, tal como se indica en la Figura \ref{p2capasteoria}:
 
 \insertimage[\label{p2capasteoria}]{p2capasteoria}{width=8cm}{Depósito de sueos conformado por capas horizontales.}
 
@@ -43,7 +43,7 @@ En el caso particular de esta tarea se utilizó el valor de la velocidad de onda
 
 \insertequation{\text{Velocidad de onda compleja:}\quad V_s^* = \sqrt{\frac{G^*}{\rho}} = V_s \cdot \sqrt{1+2iD}}
 
-\insertequation{\text{Número de onda complejo:}\quad k^* = \frac{\omega}{V_s} = \frac{\omega}{V_s \cdot \sqrt{1+2iD}}} \\
+\insertequation{\text{Número de onda complejo:}\quad k^* = \frac{\omega}{V_s} = \frac{\omega}{V_s \cdot \sqrt{1+2iD}}}
 
 Una solución de la ecuación de movimiento que considera el modelo viscoelástico es:
 
@@ -103,6 +103,7 @@ Para resolver el problema se creó, al igual que para la primera pregunta, una f
 
 A continuación se muestra el extracto de código más importante de la implementación:
 
+\newpage
 \begin{sourcecodep}{matlab}{firstnumber=52}{Código más importante de \texttt{u\_velt.m}.}
 %% Calcula propiedades N capas (Kelvin-Voigt)
 nVs = Vs .* sqrt(1+2*1i*D); % Velocidad onda de corte compleja (si D!=0)
@@ -154,7 +155,7 @@ Se utilizó un sistema de 5 capas, con un perfil de velocidad de corte creciente
 	\caption{Sistema de capas inventado para este caso.}
 	\begin{tabular}{ccccc}
 		\hline
-		\textbf{Capa} & \textbf{Vs (m/s)} & \boldmath{}\textbf{$rho$ kN/m3}\unboldmath{} & \textbf{D} & \textbf{H (m)} \bigstrut\\
+		\textbf{Capa} & \textbf{Vs (m/s)} & \boldmath{}\textbf{$\rho$ kN/m3}\unboldmath{} & \textbf{D} & \textbf{H (m)} \bigstrut\\
 		\hline
 		1     & 150   & 15    & 0.01  & 10 \bigstrut[t]\\
 		2     & 700   & 17    & 0.03  & 5 \\
@@ -181,4 +182,4 @@ Se modeló un sistema de 5 capas y una capa con una velocidad de corte $V_s$=250
 	\addimage{p2caso21capa}{width=7cm}{Caso una capa.}
 \end{images}
 
-Tal como es posible observar en la Figura \ref{p2segundocaso} se obtuvo la misma solución, misma función de transferencia.
+Tal como es posible observar en la Figura \ref{p2segundocaso} se obtuvo la misma solución, mismo función de transferencia.
