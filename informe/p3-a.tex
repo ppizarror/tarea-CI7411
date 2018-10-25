@@ -1,0 +1,28 @@
+A partir de las mediciones de vibraciones ambientales en superficie de la ciudad de Llolleo (tanto en ciudad como en ubicaciones aledañas) se calculó la razón espectral H/V tanto de cada medición como el promedio del conjunto. \\
+
+Este cálculo se hizo a partir del programa Geopsy, el cual carga los registros, aplica filtros, selecciona ventanas de medición (de 30 segundos, Tuckey window con ancho de 5\%), suaviza la FFT (Konno \& Ohmachi) y calcula el H/V \footnote{H/V, según lo estudiado por Nakamura, establece la razón espectral entre las componentes horizonales y verticales de un registro sísmico de un suelo. Cuando H/V es superior a 2 para un cierto rango de frecuencias se entiende que hay amplificación sísmica, dado un fuerte contraste de impedancias. En roca, por otra parte, H/V debe oscilar entre 1 y 2.}.
+
+\insertimage{p3a-selventana}{width=7cm}{Selección automática de las ventanas de medición, Geopsy.}
+
+En la Figura \ref{p3a-hv-city} se puede observar el H/V para el registro de la ciudad de Llolleo, en la Figura \ref{p3a-hv-exp} se ilustra los resultados de H/V para las cercanías de la ciudad de Llolleo. Por último en la Figura \ref{p3a-hv-prom} se ilustra el promedio H/V de cada set de registros.
+
+\begin{images}[\label{p3a-hv-city}]{H/V para registros vibraciones en la ciudad de Llolleo.}
+	\addimage{p3a-hv-city1}{width=7cm}{H/V registro vibración ambiental city1.001.}
+	\addimage{p3a-hv-city2}{width=7cm}{H/V registro vibración ambiental city1.002.}
+	\addimage{p3a-hv-city3}{width=7cm}{H/V registro vibración ambiental city1.003.}
+	\addimage{p3a-hv-city4}{width=7cm}{H/V registro vibración ambiental city1.004.}
+\end{images}
+
+\begin{images}[\label{p3a-hv-exp}]{H/V para registros vibraciones en las cercanías de la ciudad de Lloleo.}
+	\addimage{p3a-hv-exp1}{width=7cm}{H/V registro vibración ambiental exp1\_dgf1.}
+	\addimage{p3a-hv-exp2}{width=7cm}{H/V registro vibración ambiental exp2\_dgf1.}
+	\addimage{p3a-hv-exp3}{width=7cm}{H/V registro vibración ambiental exp3\_dgf1.}
+	\addimage{p3a-hv-exp4}{width=7cm}{H/V registro vibración ambiental exp4\_dgf1.}
+\end{images}
+
+\begin{images}[\label{p3a-hv-prom}]{H/V promedios de registros.}
+	\addimage{p3a-hv-cityprom}{width=7cm}{Promedio H/V registro vibración ambiental en ciudad de Lloleo.}
+	\addimage{p3a-hv-expprom}{width=7cm}{Promedio H/V registro vibración ambiental cercanías ciudad de Lloleo.}
+\end{images}
+
+Como se puede observar en las figuras anteriores el H/V en la ciudad de Llolleo indica una clara amplificación en torno a la frecuencia de $2Hz$, con lo cual da a entender un claro contraste de impedancias entre roca basal y superficie. Por otro lado, como se puede apreciar en la Figura \ref{p3a-hv-prom}.b el promedio de H/V en las cercanías de la ciudad de Llolleo también indica un claro contraste de impedancias, sin embargo presenta una frecuencia ligeramente superior, en torno a los $2.2Hz$. Esto ocurre principalmente porque los suelos son distintos entre ambos sitios de medición.
