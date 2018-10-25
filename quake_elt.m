@@ -144,7 +144,7 @@ for i = 1:length(t)
     ylim([0, zz]);
     xlabel(plot_xlabel, 'interpreter', 'latex');
     ylabel(plot_ylabel, 'interpreter', 'latex');
-    title(sprintf('Quake | Re(u):azul, Im(u):rojo | FT: %.3f', ft), 'interpreter', 'latex');
+    title(sprintf('Quake Elastico | Re(u):azul, Im(u):rojo | FT: %.3f', ft), 'interpreter', 'latex');
     if disp_legend
         legend({'Re(u(z,t))', 'Im(u(z,t))'}, 'Location', 'southwest');
     end

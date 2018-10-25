@@ -1,26 +1,31 @@
-function plt = plot_fa(fa, wmax, famax, plot_title, plot_T, NPOINTS, plot_color)
+function plt = plot_fa(fa, wmax, famax, plot_title, NPOINTS, plot_colorw, show_legend)
 %PLOT_FA Grafica la funcion del factor de amplificacion.
 %
-%   plot := plot_fa(fa,wmax,famax)
+%   plot := plot_fa(fa, wmax, famax, 'Plot title');
+%   plot := plot_fa(fa, wmax, famax, 'Plot title', true);
+%   plot := plot_fa(fa, wmax, famax, 'Plot title', false, 1000);
+%   plot := plot_fa(fa, wmax, famax, 'Plot title', true, 100, 'k');
+%   plot := plot_fa(fa, wmax, famax, 'Plot title', true, 100, 'k', 'r');
+%   plot := plot_fa(fa, wmax, famax, 'Plot title', false, 100, 'k', 'r', true);
 %
 % Parametros:
 %   fa              Funcion factor de amplificacion
 %   wmax            Frecuencia maxima de evaluacion, eje x
 %   famax           Valor maximo de FA en el eje y
 %   plot_title      Titulo del grafico
-%   plot_T          Grafica el periodo en vez de la frecuencia
 %   NPOINTS         Numero de puntos de evaluacion, por defecto es 100
-%   plot_color      Color del grafico
+%   plot_colorw     Color del grafico FA(w)
+%   show_legend     Muestra la leyenda
 
 %% Inicia variables
-if ~exist('plot_T', 'var')
-    plot_T = false;
-end
 if ~exist('NPOINTS', 'var')
-    NPOINTS = 100;
+    NPOINTS = 1000;
 end
-if ~exist('plot_color', 'var')
-    plot_color = 'k';
+if ~exist('plot_colorw', 'var')
+    plot_colorw = 'k';
+end
+if ~exist('show_legend', 'var')
+    show_legend = true;
 end
 
 %% Genera el grafico
@@ -31,23 +36,22 @@ movegui(plt, 'center');
 set(gcf, 'name', plot_title);
 
 %% Crea las variables
-w = linspace(0, wmax, NPOINTS);
+w = linspace(0.01, wmax, NPOINTS);
 faw = zeros(NPOINTS, 1);
 for i = 1:NPOINTS
     faw(i) = fa(w(i));
 end
 
 %% Grafica
-plot(w, faw, plot_color);
+plot(w, faw, plot_colorw);
 grid on;
 title(plot_title);
-if ~plot_T
-    xlabel('$\omega$', 'interpreter', 'latex');
-    ylabel('FA($\omega$)', 'interpreter', 'latex');
-else
-    xlabel('T');
-    ylabel('FA(T)');
-end
+xlabel('$\omega$ | T', 'interpreter', 'latex');
+ylabel('FA($\omega$ | T)', 'interpreter', 'latex');
 ylim([-famax, famax]);
+xlim([0, wmax]);
+if show_legend
+    legend({'FA(\omega)'}, 'Location', 'northwest')
+end
 
 end

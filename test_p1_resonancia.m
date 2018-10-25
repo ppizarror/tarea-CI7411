@@ -8,7 +8,7 @@ ab = 10; % Amplitud basal (m)
 
 % Calcula omega resonante
 T = 4 * H / Vs;
-fprintf('Periodo resonante: %f', T);
+fprintf('Periodo resonante: %f\n', T);
 
 dh = 0.2;
 dt = 0.01;
