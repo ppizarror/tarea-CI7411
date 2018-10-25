@@ -26,8 +26,11 @@ end
 
 %% Calcula la frecuencia
 w = 2 * pi / T;
-if cos(w*H/Vs) == 0
+cosval = cos(w*H/Vs);
+if cosval == 0
     error('El periodo de la onda genera resonancia');
+elseif cosval < 1e-15
+    warning('El periodo de la onda está cerca de la resonancia, posible inestabilidad numérica');
 end
 
 %% Retorna la funcion de desplazamiento
