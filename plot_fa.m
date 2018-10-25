@@ -2,11 +2,9 @@ function plt = plot_fa(fa, wmax, famax, plot_title, NPOINTS, plot_colorw, show_l
 %PLOT_FA Grafica la funcion del factor de amplificacion.
 %
 %   plot := plot_fa(fa, wmax, famax, 'Plot title');
-%   plot := plot_fa(fa, wmax, famax, 'Plot title', true);
-%   plot := plot_fa(fa, wmax, famax, 'Plot title', false, 1000);
-%   plot := plot_fa(fa, wmax, famax, 'Plot title', true, 100, 'k');
-%   plot := plot_fa(fa, wmax, famax, 'Plot title', true, 100, 'k', 'r');
-%   plot := plot_fa(fa, wmax, famax, 'Plot title', false, 100, 'k', 'r', true);
+%   plot := plot_fa(fa, wmax, famax, 'Plot title', 1000);
+%   plot := plot_fa(fa, wmax, famax, 'Plot title', 100, 'k');
+%   plot := plot_fa(fa, wmax, famax, 'Plot title', 100, 'k, false);
 %
 % Parametros:
 %   fa              Funcion factor de amplificacion
@@ -19,7 +17,7 @@ function plt = plot_fa(fa, wmax, famax, plot_title, NPOINTS, plot_colorw, show_l
 
 %% Inicia variables
 if ~exist('NPOINTS', 'var')
-    NPOINTS = 1000;
+    NPOINTS = 100;
 end
 if ~exist('plot_colorw', 'var')
     plot_colorw = 'k';

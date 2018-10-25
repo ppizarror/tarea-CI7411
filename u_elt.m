@@ -34,6 +34,6 @@ elseif abs(cosval) < 1e-15
 end
 
 %% Retorna la funcion de desplazamiento
-u = @(z, t) (ab / cos(w*H/Vs)) * exp(1i*w*t) * cos(w*z/Vs);
+u = @(z, t) (ab / cosval) * exp(1i*w*t) * cos(w*z/Vs);
 
 end
