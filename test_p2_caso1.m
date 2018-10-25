@@ -1,9 +1,9 @@
 % TEST P2
-% 4 capas sobre semiespacio (roca)
+% 4 capas sobre semiespacio (roca), fuerte contraste de impedancias
 
 %% Testeo multicapa 4 capas y semiespacio (roca)
-Vs = [100, 220, 700, 250, 1500]; % Velocidad onda de corte (m/s)
-rho = [15, 16.5, 17, 15, 27]; % Densidad kN/m3
+Vs = [100, 700, 750, 900, 1500]; % Velocidad onda de corte (m/s)
+rho = [15, 17, 17, 20, 27]; % Densidad kN/m3
 D = [0.01, 0.03, 0.02, 0.01, 0.005]; % Amortiguamiento (%)
 H = [10, 5, 15, 10]; % Altura de cada estrato (m)
 E1 = 1;

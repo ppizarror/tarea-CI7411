@@ -23,7 +23,6 @@ dh = 0.2;
 dt = 0.005;
 
 %% Crea el grafico del factor de amplificacion
-fa = fa_elt(Vs, H);
 plot_fa(fa, 45, 10, 'Factor Amplificacion');
 
 %% Genera el grafico
