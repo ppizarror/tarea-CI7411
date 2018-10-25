@@ -111,6 +111,9 @@ for i = 1:length(t)
         return;
     end
     
+    % Se asegura de tener el foco en la figura
+    figure(plt);
+    
     % Calcula el desplazamiento
     for j = 1:length(z)
         u_(j) = u(z(j), t(i));

@@ -1,4 +1,4 @@
-function plotfig = plot_fa(fa,wmax,famax,plot_title,NPOINTS,plot_color)
+function plotfig = plot_fa(fa, wmax, famax, plot_title, NPOINTS, plot_color)
 %PLOT_FA Grafica la funcion del factor de amplificacion.
 %
 %   plot := plot_fa(fa,wmax,famax)
@@ -27,14 +27,14 @@ movegui(plt, 'center');
 set(gcf, 'name', plot_title);
 
 %% Crea las variables
-w = linspace(0,wmax,NPOINTS);
-faw = zeros(NPOINTS,1);
-for i=1:NPOINTS
+w = linspace(0, wmax, NPOINTS);
+faw = zeros(NPOINTS, 1);
+for i = 1:NPOINTS
     faw(i) = fa(w(i));
 end
 
 %% Grafica
-plot(w,faw,plot_color);
+plot(w, faw, plot_color);
 grid on;
 title(plot_title);
 xlabel('$\omega$', 'interpreter', 'latex');

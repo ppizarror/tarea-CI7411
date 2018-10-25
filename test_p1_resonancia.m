@@ -7,15 +7,15 @@ Vs = 40; % (m/s)
 ab = 10; % Amplitud basal (m)
 
 % Calcula omega resonante
-T= 4*H/Vs;
+T = 4 * H / Vs;
 fprintf('Periodo resonante: %f', T);
 
 dh = 0.2;
 dt = 0.01;
 
 %% Crea el grafico del factor de amplificacion
-fa = fa_elt(Vs,H);
-plot_fa(fa,10,10,'Factor Amplificacion');
+fa = fa_elt(Vs, H);
+plot_fa(fa, 10, 10, 'Factor Amplificacion');
 
 %% Genera el grafico
 quake_elt(Vs, H, ab, T, dh, dt);

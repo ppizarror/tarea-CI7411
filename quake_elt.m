@@ -102,15 +102,15 @@ u_ = zeros(length(z), 1);
 
 for i = 1:length(t)
     
-    % Se asegura de tener el foco en la figura
-    figure(plt);
-    
     % Si el usuario cierra el plot termina de graficar
     if ~ishandle(plt)
         delete(plt);
         close; % Cierra el grafico
         return;
     end
+    
+    % Se asegura de tener el foco en la figura
+    figure(plt);
     
     % Calcula el desplazamiento
     for j = 1:length(z)
