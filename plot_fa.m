@@ -37,7 +37,7 @@ end
 plot(w,faw,plot_color);
 grid on;
 title(plot_title);
-xlabel('\omega');
-ylabel('FA(\omega)');
+xlabel('$\omega$', 'interpreter', 'latex');
+ylabel('FA($\omega$)', 'interpreter', 'latex');
 
 end
