@@ -1,3 +1,89 @@
 \section{Pregunta 1}
 
-\textbf{Implemente las ecuaciones de propagación unidimensional de onda de corte para un medio elástico en condición permanente y grafique el desplazamiento de partícula en profundidad en forma animada. Siga el ejemplo del software Quake visto en clases (disponible en material docente de u-cursos).}
+\textbf{Implemente las ecuaciones de propagación unidimensional de onda de corte para un medio elástico en condición permanente y grafique el desplazamiento de partícula en profundidad en forma animada. Siga el ejemplo del software Quake visto en clases (disponible en material docente de u-cursos).} \\
+
+\subsectionanum{Teoría}
+Para estudiar la propagación unidimensional de onda de corte para un medio elástico se realiza equilibrio de fuerzas en un elemento infinitesimal sometido a corte dentro del medio, tal como se observa en la Figura \ref{p1corte}, en donde $\rho$ es la densidad del medio, $G$ el módulo de corte y $H$ la altura del medio elástico.
+
+\insertimage[\label{p1corte}]{p1corte}{width=8cm}{Elemento infinitesimal sometido a corte.}
+
+Al realizar equilibrio dinámico de fuerzas en el eje $u$ se tiene que:
+
+\insertequation{\underequal{\bigg(\cancel{\tau }+ \fracpartial{\tau}{z}\cancel{\dd z}\bigg)\cancel{\dd x \dd y} - \cancel{\tau \dd x \dd y}}{\textit{Eq. fuerzas}} = \underequal{\rho \cancel{\dd x \dd y} \cancel{\dd z}}{\textit{Masa}} \cdot \underequal{\fracdpartial{u}{t}}{\textit{Aceleración}}}
+
+\insertequation[\label{p1tauz}]{\fracpartial{\tau}{z} = \rho \cdot \fracdpartial{u}{t}}
+
+Para un material elástico se tiene que el corte es directamente proporcional a la deformación angular, con constante de proporción el módulo de corte o cizalle $G$:
+
+\insertequation[\label{leycorte}]{\tau = G \cdot \gamma = G \cdot \fracpartial{u}{z}}
+
+Al utilizar \eqref{leycorte} en \eqref{p1tauz} se obtiene finalmente:
+
+\insertequation[\label{p1gonda}]{G\cdot\fracdpartial{u}{z} = \rho\cdot\fracdpartial{u}{t}}
+
+La forma de la ecuación anterior \eqref{p1gonda} es similar a la ecuación de onda $\fracdpartial{\xi}{t} = \nu^2 \cdot \fracdpartial{\xi}{x}$, conocida también como la ecuación de D'Alembert, en donde describe una onda de velocidad $\nu$ relacionando tanto espacio como tiempo. \\
+
+Considerando luego que $V_s^2=\frac{\rho}{G}$ corresponde a la velocidad de la onda de corte se puede utilizar la solución característica de la ecuación de onda como solución del problema de propagación unidimensional de onda de corte para un medio elástico:
+
+\insertequation{u(t,z)=A \cdot e^{i\big(\omega t + k z\big)}}
+
+Cuyas derivadas corresponden a:
+
+\insertequation[\label{p1udervs}]{\begin{array}{ccc}
+	\fracpartial{u}{t} = Ai\omega \cdot e^{i\omega t} \cdot e^{ikz} & & \fracdpartial{u}{t} = - A \omega^2  \cdot e^{i\omega t} \cdot e^{ikz} \\
+	&& \\
+	\fracpartial{u}{z} = Aik \cdot e^{i\omega t} \cdot e^{ikz} & &  \fracdpartial{u}{z} = -A k^2 \cdot e^{i\omega t} \cdot e^{ikz}
+	\end{array}
+}\\
+
+Reemplazando \eqref{p1udervs} en \eqref{p1gonda} se obtiene la siguiente relación:
+
+\insertequationanum{-G A k^2 \cdot e^{i\omega t} \cdot e^{ikz} = -\rho A \omega^2  \cdot e^{i\omega t} \cdot e^{ikz}}
+\insertequation{\frac{G}{\rho} = \bigg(\frac{\omega}{k}\bigg)^2 = {V_s}^2}
+
+En donde $k$ corresponde al número de onda, $k = \frac{2\pi}{\lambda}$, $\lambda$ la longitud de la onda. Finalmente, suponiendo que $-z$ también es solución de la ecuación se obtiene la solución final:
+
+\insertequation{\boxed{u(z,t)=A\cdot e^{i\omega \big(t+\frac{z}{V_s}\big)} + B\cdot e^{i\omega \big(t-\frac{z}{V_s}\big)}}}
+
+Para resolver el problema de un estrato sobre roca es necesario identificar las condiciones de borde del problema:
+
+\begin{itemize}
+	\item \textbf{Condición natural de borde en superficie, no transmite corte} \\
+	En este caso se tiene que $\tau(z=0)=0$, por lo tanto $\fracpartial{u}{z} \big|_{z=0}=0$:
+	
+	\insertequationanum{\fracpartial{u}{z} = A \cdot \frac{i\omega}{V_s} \cdot e^{i\omega t}\cdot e^{i\omega \frac{z}{V_s}}-B\cdot \frac{i\omega}{V_s} \cdot e^{i\omega t}\cdot e^{i\omega \frac{z}{V_s}} = 0 \longmapsto A=B}
+	
+	Así la solución se reduce a $u(z,t)=A\cdot e^{i\omega t} \bigg(e^{i\omega \frac{z}{V_s}}+e^{i\omega \frac{-z}{V_s}}\bigg) = 2A e^{i\omega t}\cos\big(\frac{\omega z}{V_s}\big)$
+	
+	\item \textbf{En el basamiento se tiene igual desplazamiento que en roca} \\
+	
+	Para este caso se tiene que $\norm{u(z,t=H)}=a_b = 2A\cdot\cancelto{1}{\norm{e^{i\omega t}}}\cos\big(\frac{\omega H}{V_s}\big) = 2A \cos\big(\frac{\omega z}{V_s}\big)$, en donde $a_b$ corresponde a la amplitud basal del movimiento en la base $a_b$, así:
+	
+	\insertequation{A = \frac{a_b}{2\cos\big(\frac{\omega H}{V_s}\big)}}
+\end{itemize}
+
+Por tanto, con ambas condiciones de borde se obtiene la solución para el problema:
+
+\insertequation[\label{p1solfinal}]{\boxed{u(z,t) = \frac{a_b}{\cos\big(\frac{\omega H}{V_s}\big)}e^{i\omega t}\cos \big(\frac{\omega z}{V_s}\big)}}
+
+\subsectionanum{Implementación en Matlab}
+
+Con el fin de poder implementar y graficar el desplazamiento de partícula en profundidad en forma animada se desarrolló la ecuación \eqref{p1solfinal} en matlab (ver archivo \texttt{u\_elt.m}). En dicha función se pide como parámetro $T$ período, $H$ la altura del estrato, $V_s$ velocidad de corte y $a_b$ amplitud basal. \\
+
+Dicha función retorna otra función que pide tanto $z$ como $t$ para entregar el desplazamiento, esto se desarrolló así para hacer el análogo a $u(z,t)$, en otras palabras:
+
+\insertequationanum{u\_elt(V_s,H,a_b,T) \mapsto u(z,t)}
+
+\begin{sourcecodep}{matlab}{firstnumber=27}{Código más importante de \texttt{u\_elt.m}.}
+%% Calcula la frecuencia
+w = 2 * pi / T;
+cosval = cos(w*H/Vs);
+if cosval == 0
+	error('El periodo de la onda genera resonancia');
+elseif cosval < 1e-15
+	warning('El periodo de la onda está cerca de la resonancia, posible inestabilidad numérica');
+end
+
+%% Retorna la funcion de desplazamiento
+u = @(z, t) (ab / cos(w*H/Vs)) * exp(1i*w*t) * cos(w*z/Vs);
+\end{sourcecodep}
