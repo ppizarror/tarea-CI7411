@@ -42,7 +42,7 @@ u = u_elt(Vs, H, ab, T);
 z = 0:dh:sum(H);
 t = 0:dt:(10000 * T);
 
-%% Calcula los maximos deslazamientos
+%% Calcula los maximos desplazamientos
 umax = 0; % Desplazamiento maximo en toda la onda
 u0 = 0; % Desplazamiento maximo en base
 us = 0; % Deslazamiento maximo en superficie

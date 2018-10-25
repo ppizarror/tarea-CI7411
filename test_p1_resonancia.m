@@ -15,7 +15,7 @@ dt = 0.01;
 
 %% Crea el grafico del factor de amplificacion
 fa = fa_elt(Vs, H);
-plot_fa(fa, 10, 10, 'Factor Amplificacion');
+plot_fa(fa, 10, 100, 'Factor Amplificacion');
 
 %% Genera el grafico
 quake_elt(Vs, H, ab, T, dh, dt);

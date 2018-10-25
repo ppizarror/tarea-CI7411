@@ -1,4 +1,4 @@
-function plotfig = plot_fa(fa, wmax, famax, plot_title, NPOINTS, plot_color)
+function plt = plot_fa(fa, wmax, famax, plot_title, plot_T, NPOINTS, plot_color)
 %PLOT_FA Grafica la funcion del factor de amplificacion.
 %
 %   plot := plot_fa(fa,wmax,famax)
@@ -8,10 +8,14 @@ function plotfig = plot_fa(fa, wmax, famax, plot_title, NPOINTS, plot_color)
 %   wmax            Frecuencia maxima de evaluacion, eje x
 %   famax           Valor maximo de FA en el eje y
 %   plot_title      Titulo del grafico
+%   plot_T          Grafica el periodo en vez de la frecuencia
 %   NPOINTS         Numero de puntos de evaluacion, por defecto es 100
 %   plot_color      Color del grafico
 
 %% Inicia variables
+if ~exist('plot_T', 'var')
+    plot_T = false;
+end
 if ~exist('NPOINTS', 'var')
     NPOINTS = 100;
 end
@@ -37,7 +41,13 @@ end
 plot(w, faw, plot_color);
 grid on;
 title(plot_title);
-xlabel('$\omega$', 'interpreter', 'latex');
-ylabel('FA($\omega$)', 'interpreter', 'latex');
+if ~plot_T
+    xlabel('$\omega$', 'interpreter', 'latex');
+    ylabel('FA($\omega$)', 'interpreter', 'latex');
+else
+    xlabel('T');
+    ylabel('FA(T)');
+end
+ylim([-famax, famax]);
 
 end
