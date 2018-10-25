@@ -44,8 +44,8 @@ end
 plot(w, faw, plot_colorw);
 grid on;
 title(plot_title);
-xlabel('$\omega$ | T', 'interpreter', 'latex');
-ylabel('FA($\omega$ | T)', 'interpreter', 'latex');
+xlabel('$\omega$', 'interpreter', 'latex');
+ylabel('FA($\omega$)', 'interpreter', 'latex');
 ylim([-famax, famax]);
 xlim([0, wmax]);
 if show_legend

@@ -1,4 +1,4 @@
-function quake_elt(Vs, H, ab, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp, mult_umax, disp_legend)
+function quake_elt(Vs, H, ab, T, dh, dt, plot_normalize, plot_pause, plot_cp, plot_maxp, mult_umax, disp_legend, show_max)
 % QUAKE_ELT Genera un grafico de u(z,t) en funcion del tiempo, sistema elastico, un solo estrato.
 %
 % Parametros:
@@ -14,6 +14,7 @@ function quake_elt(Vs, H, ab, T, dh, dt, plot_normalize, plot_pause, plot_cp, pl
 %   plot_maxp       Muestra los puntos maximos
 %   mult_umax       Factor en que crece umax
 %   disp_legend     Muestra la leyenda
+%   show_max        Muestra el maximo de u(z,t) por cada z
 
 %% Inicia variables
 if ~exist('plot_normalize', 'var')
@@ -34,6 +35,9 @@ end
 if ~exist('disp_legend', 'var')
     disp_legend = false;
 end
+if ~exist('show_max', 'var')
+    show_max = true;
+end
 
 %% Crea la funcion u(z,t)
 u = u_elt(Vs, H, ab, T);
@@ -47,9 +51,12 @@ umax = 0; % Desplazamiento maximo en toda la onda
 u0 = 0; % Desplazamiento maximo en base
 us = 0; % Deslazamiento maximo en superficie
 mt = 0:dt:T;
+uzmax = zeros(length(z), 1);
 for i = 1:length(mt)
     for j = 1:length(z)
-        umax = max(umax, max(abs(u(z(j), mt(i)))));
+        uzj = u(z(j), mt(i));
+        uzmax(j) = max(uzmax(j), abs(uzj));
+        umax = max(umax, abs(uzj));
     end
     us = max(us, max(abs(u(z(1), mt(i)))));
     u0 = max(u0, max(abs(u(z(end), mt(i)))));
@@ -122,6 +129,12 @@ for i = 1:length(t)
     hold on;
     plot(imag(u_)./u0, z./z0, 'r');
     grid on;
+    
+    % Grafica el maximo desplazamiento
+    if show_max
+        plot(uzmax./u0, z./z0, 'k:');
+        plot(-uzmax./u0, z./z0, 'k:');
+    end
     
     % Grafica las capas
     if plot_cp

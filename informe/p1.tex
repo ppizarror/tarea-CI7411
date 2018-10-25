@@ -80,16 +80,55 @@ w = 2 * pi / T;
 cosval = cos(w*H/Vs);
 if cosval == 0
 	error('El periodo de la onda genera resonancia');
-elseif cosval < 1e-15
+elseif abs(cosval) < 1e-15
 	warning('El periodo de la onda está cerca de la resonancia, posible inestabilidad numérica');
 end
 
 %% Retorna la funcion de desplazamiento
-u = @(z, t) (ab / cos(w*H/Vs)) * exp(1i*w*t) * cos(w*z/Vs);
+u = @(z, t) (ab / cosval) * exp(1i*w*t) * cos(w*z/Vs);
 \end{sourcecodep}
 
 \newp Al tener $u(z,t)$ la generación del gráfico animado es trivial, ya que se mantiene un ciclo \textit{for} en donde se calcula la posición para un arreglo de $z$ en un determinado $t_i$, al finalizar la instancia del ciclo se actualiza el tiempo $t_{i+1} = t_{i} + \dd t$. Para mantener la velocidad de la animación se hace uso de la instrucción \textit{pause(t)} el cual permite pausar la ejecución del programa en un determinado tiempo $t$. La función que se encarga de graficar la animación corresponde a \texttt{quake\_elt}.
 
 \subsectionanum{Validación de la metodología}
 
-A modo de testear que el código sea consistente se crearon dos tests, uno tiene por objetivo contrastar el resultado obtenido por 
+A modo de testear que el código sea consistente se crearon dos tests, uno tiene por objetivo contrastar el resultado obtenido de forma analítica, y en otro caso se prueba el código en el estado de resonancia.
+
+\subsubsectionanum{Test analítico}
+
+Sea un estrato de $H$=20 metros de profundidad, con una velocidad de corte de $V_s$=150 metros por segundo. En este caso, para cualquier valor de amplitud basal $a_b$, sea $a_b$=10 metros, evaluado en un período de $T=$1.8 segundos, se tiene:
+
+\insertequationanum{\omega = \frac{2\pi}{T} = 3.4907\ Hz \quad \quad u(z,t)=\frac{10}{\cos\big(\frac{3.4907 \cdot 20}{150}\big)}e^{i3.4907 t}\cos \big(\frac{3.4907 z}{150}\big)}
+\insertequationanum{u(z,t)=11.1907e^{i3.4907 t}\cos \big(0.0233\cdot z\big)}
+
+Algunos puntos de prueba:
+
+\begin{table}[H]
+	\centering
+	\caption{Casos de prueba función y resultados analíticos}
+	\begin{tabular}{ccc}
+		\hline
+		u (m) & t (s) & u(z,t) \bigstrut\\
+		\hline
+		0     & 0     & 11.1903 \bigstrut[t]\\
+		20    & 0     & 10.0000 \\
+		10    & 5     & 1.8908 \\
+	\end{tabular}
+\end{table}
+
+Por otra parte, teóricamente el factor de amplificación corresponde a $FA=\frac{1}{\cos\bigg(\frac{\omega H}{V_s}\bigg)} = 1.1191$.
+
+El script programado en \texttt{test\_p1\_analitico.m} retornó los siguientes gráficos:
+
+\begin{images}{Resultado caso analítico.}
+	\addimage{p1fa}{width=7cm}{Gráfico factor de amplificación.}
+	\addimage{p1uzt}{width=7cm}{Quake.}
+\end{images}
+
+\subsubsectionanum{Test resonancia}
+
+En este test se busca llegar a la resonancia. Para ello se utilizó el mismo suelo, pero evaluado en $T=\frac{4H}{V_s}$, valor del período para el cual el coseno del denominador de la expresión se indefine, logrando teóricamente un factor de amplificación infinito.
+
+\insertimage{p1resonancia}{width=7cm}{Evaluación del caso en resonancia.}
+
+Tal como se puede observar en la figura anterior, se obtuvo un FA muy alto, numéricamente inestable. Esto indica claramente que la solución es correcta, ya que amplifica en el período teóricamente resonante.

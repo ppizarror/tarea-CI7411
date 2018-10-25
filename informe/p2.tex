@@ -1,0 +1,24 @@
+\newpage
+\section{Pregunta 2}
+
+\textbf{Implemente las ecuaciones de propagación unidimensional de ondas de corte para un medio visco-elástico compuesto por capas en condición permanente y grafique el desplazamiento de partícula en profundidad en forma animada. Considere un depósito compuesto por tres capas.} \\
+
+Considérese un depósito de suelo conformado por capas perfectamente horizontales y de extensión infinita, tal como se indica en la Figura
+
+\insertimage[\label{p2capasteoria}]{p2capasteoria}{width=8cm}{Depósito de sueos conformado por capas horizontales.}
+
+Al igual que el caso anterior, al realizar equilibrio dinámico sobre un elemento diferencial sometido a corte se obtiene nuevamente la siguiente ecuación de equilibrio:
+
+\insertequation{\fracpartial{\tau}{z} = \rho \cdot \fracdpartial{u}{t}}
+
+Considerando un modelo constitutivo visco-elástico de tipo Kelvin-Voigt \footnote{El cual considera un sistema en paralelo de disipador y resorte.}:
+
+\insertequation{\tau = G \gamma + c \cdot \dot{\gamma}}
+\insertequation{\begin{array}{ccc}
+		\fracpartial{\tau}{z} = G \fracpartial{\gamma}{z} + c \frac{\partial^2 \gamma}{\partial t \partial z} & & \fracpartial{\tau}{z} = G \fracdpartial{u}{z} + c \frac{\partial^3 u}{\partial t \partial z^2}
+	\end{array}
+}
+
+Se concluye que $\rho \fracdpartial{u}{t} = G \fracdpartial{u}{z} + c \frac{\partial^3 u}{\partial t \partial z^2}$, luego suponiendo una solución general del tipo $u(z,t)=U(z)e^{i\omega t}$:
+
+\insertequationanum{-\rho \cdot U(z)\omega^2 e^{i\omega t} = G \cdot\fracdpartial{U}{z} e^{i\omega t} + i \omega c \cdot\fracdpartial{U}{z} e^{i\omega t}}

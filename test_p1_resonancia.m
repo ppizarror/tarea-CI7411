@@ -3,7 +3,7 @@
 
 %% Testeo quake sistema elastico
 H = 20; % (m)
-Vs = 40; % (m/s)
+Vs = 150; % (m/s)
 ab = 10; % Amplitud basal (m)
 
 % Calcula omega resonante
