@@ -1,4 +1,4 @@
-% TEST P2
+%% TEST P2
 % 4 capas sobre semiespacio (roca), fuerte contraste de impedancias
 
 %% Testeo multicapa 4 capas y semiespacio (roca)

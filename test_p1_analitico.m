@@ -1,4 +1,4 @@
-% TEST P1
+%% TEST P1
 % Estrato sobre semiespacio (roca)
 
 %% Testeo quake sistema elastico

@@ -24,8 +24,7 @@ hvmean = zeros(1, length(hvi));
 hvstd = zeros(1, length(hvi));
 hvdata = zeros(1, n);
 for j=1:length(finterp)
-    % Carga los datos para ese i-frecuencia
-    for i=1:n
+    for i=1:n % Carga los datos para ese i-frecuencia
         hvdata(i) = hv{i}(j);
     end
     hvmean(j) = mean(hvdata);

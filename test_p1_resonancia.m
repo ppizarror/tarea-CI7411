@@ -1,4 +1,4 @@
-% TEST P1
+%% TEST P1
 % Estrato sobre semiespacio (roca), caso cercano a resonancia
 
 %% Testeo quake sistema elastico

@@ -1,4 +1,4 @@
-% TEST P2
+%% TEST P2
 % Idéntico al caso dos, se usa una capa. Se espera que los resultados sean
 % los mismos
 

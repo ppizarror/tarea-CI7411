@@ -1,4 +1,4 @@
-% TEST P2
+%% TEST P2
 % 5 capas sobre semiespacio (roca), todas las capas son idénticas
 
 %% Testeo multicapa 5 capas y semiespacio (roca)

@@ -2,6 +2,9 @@
 % Resultados maule, afloramiento rocoso
 % Carga los resultados del programa DEEPSOIL y crea la curva
 % del factor de transferencia para el metodo lineal equivalente
+%
+% Genera ademas el contraste entre el grafico empirico y el factor de
+% transferencia roca-afloramiento FTsa
 
 %% Genera la curva de factor de transferencia empirica
 ftsitio = figure;

@@ -1,6 +1,9 @@
 %% CASO 3.F
 % Carga los resultados del programa DEEPSOIL y crea la curva
 % del factor de transferencia para el metodo lineal equivalente
+%
+% Genera ademas el contraste entre el caso empirico y el analitico del
+% factor de transferencia entre el suelo y la roca basal FTsb
 
 %% Genera la curva de factor de transferencia empirica
 ftsitio = figure;

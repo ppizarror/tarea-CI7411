@@ -1,6 +1,10 @@
 %% CASO 3.H
 % Carga los resultados del programa DEEPSOIL y crea la curva
 % del factor de transferencia para el metodo lineal equivalente
+%
+% Genera ademas el grafico para comparar el caso medido (parte 3.c) y el
+% grafico empirico (obtenido a partir de los archivos de resultados del
+% DEEPSOIL)
 
 %% Genera la curva de factor de transferencia empirica
 ftsitio = figure;
@@ -51,8 +55,7 @@ ftmean = zeros(1, length(fti));
 ftstd = zeros(1, length(fti));
 ftdata = zeros(1, n);
 for j=1:length(winterp)
-    % Carga los datos para ese i-frecuencia
-    for i=1:n
+    for i=1:n % Carga los datos para ese i-frecuencia
         ftdata(i) = ft{i}(j);
     end
     ftmean(j) = mean(ftdata);

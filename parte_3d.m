@@ -1,4 +1,8 @@
-% Crea sistema de capas
+%% CASO 3.D
+% Genera las curvas FTsb (Funcion de transferencia superficie-roca basal) y
+% FTsa (Roca-basal y Afloramiento rocoso)
+
+%% Crea sistema de capas
 Vs = [180, 200, 250, 200, 720, 250, 250, 720, 1800]; % Velocidad onda de corte (m/s)
 rho = [18, 15, 20, 16, 21, 17, 17, 19, 25]; % Densidad kN/m3
 D = [0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.01]; % Amortiguamiento (%)
@@ -16,6 +20,3 @@ ft_sa = fa_velt_sa(rho, Vs, D, H, E1); % ft_sa(w)
 hold on;
 dh = 0.2;
 dt = 0.002;
-
-%% Genera el grafico
-% quake_velt(rho, Vs, D, H, E1, 1, dh, dt);

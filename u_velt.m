@@ -1,7 +1,7 @@
 function u = u_velt(rho, Vs, D, H, E1, T)
 % U_VELT Retorna una funcion que permite obtener el desplazamiento t en una profundidad zj de un medio visco-elastico compuesto por varias capas 1..j.
 %
-%   u := u_velt([rho1,rho2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..], E1, T)
+%   u = u_velt([rho1,rho2..], [Vs1,Vs2..], [D1,D2..], [H1,H2..], E1, T)
 %   u(z,t) => u
 %
 % Parametros:
