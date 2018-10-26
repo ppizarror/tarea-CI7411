@@ -1,0 +1,11 @@
+Utilizando los registros sísmicos en superficie se calculó la razón espectral H/V del sitio utilizando el cuociente de la transformada de Fourier de la componente horizontal sobre la vertical. A modo de poder absorber ambos sentidos (E-W, N-S) se utilizó la raíz cuadrada de la suma de los cuadrados.
+
+\insertequationanum{HV = \frac{\sqrt{FFT_{NS}^2 + FFT_{EW}^2}}{FFT_{Z}}}
+
+Un aspecto importante del cálculo es que, para eliminar la gran cantidad de ruido en la FFT, se utilizó una ventana de Tuckey con un ancho de 5\%, se corrigó por línea base, y se aplicó un filtro (Mean Filter) para suavizar la transformada. \\
+
+En la Figura \ref{p3b-hv} se ilustra el resultado obtenido con Matlab. La línea gruesa corresponde al promedio, las líneas segmentadas indican la desviación estándar.
+
+\insertimage[\label{p3b-hv}]{p3b-hv}{width=12cm}{H/V Registro superficie.}
+
+Es posible observar que el período predominante de H/V es cercano a los 2 $Hz$, lo cual es consistente con lo obtenido en la parte (a), dado que el suelo es el mismo. Esto es bastante interesante dado que se obtienen períodos similares con dos metodologías distintas (vibraciones ambientales y registros sísmicos). 
