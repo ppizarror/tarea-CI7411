@@ -39,6 +39,9 @@ plot(winterp, ftmean, 'k', 'LineWidth', 3.0);
 plot(winterp, ftmean + ftstd, 'k--', 'LineWidth', 2.0);
 plot(winterp, ftmean - ftstd, 'k--', 'LineWidth', 2.0);
 
+wparte3c = winterp;
+ftparte3c = ftmean;
+
 % Limita los ejes
 xlim([0.5, 25]);
 ylim([0, 30]);
@@ -46,4 +49,4 @@ ylim([0, 30]);
 % Frecuencia
 xlabel('$\omega$', 'interpreter', 'latex');
 ylabel('FT($\omega$)', 'interpreter', 'latex');
-title('Funcion de transferencia empirica');
+title('Funcion de Transferencia Empirica del Suelo');

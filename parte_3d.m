@@ -11,8 +11,8 @@ ft_sb = fa_velt_sb(rho, Vs, D, H, E1); % ft_sb(w)
 ft_sa = fa_velt_sa(rho, Vs, D, H, E1); % ft_sa(w)
 
 %% Grafica los factores
-[wftsb, ftsb] = plot_fa(ft_sb, 0.05, 25, 0, 12, 'Funcion Transferencia Superficie-Roca Basal', 'FTsb', false);
-[wftsa, ftsa] = plot_fa(ft_sa, 0.05, 25, 0, 8, 'Funcion Transferencia Superficie-Afloramiento Rocoso', 'FTsa', false);
+[wftsb, ftsb] = plot_fa(ft_sb, 0.05, 25, 0, 12, 'Funcion Transferencia Superficie / Roca Basal', 'FTsb', false);
+[wftsa, ftsa] = plot_fa(ft_sa, 0.05, 25, 0, 8, 'Funcion Transferencia Superficie / Afloramiento Rocoso', 'FTsa', false);
 hold on;
 dh = 0.2;
 dt = 0.002;

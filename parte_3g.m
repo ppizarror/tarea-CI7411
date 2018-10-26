@@ -71,7 +71,7 @@ grid on;
 % Frecuencia
 xlabel('$\omega$', 'interpreter', 'latex');
 ylabel('FT($\omega$)', 'interpreter', 'latex');
-title('Funcion de transferencia empirica');
+title('Funcion de Transferencia Empirica');
 
 %% Crea grafico nuevo comparacion
 figure()

@@ -1,4 +1,4 @@
-%% CASO 3.F
+%% CASO 3.H
 % Carga los resultados del programa DEEPSOIL y crea la curva
 % del factor de transferencia para el metodo lineal equivalente
 
@@ -18,7 +18,7 @@ ft = cell(1, n*2); % Guarda las interpolaciones
 
 % Recorre cada archivo EW
 for i=1:n
-    fdata = load(strcat("sismos/resultados-roca/",strcat(archivos(i), "-ew.txt")));
+    fdata = load(strcat("sismos/resultados-sup/",strcat(archivos(i), "-ew.txt")));
     wi = fdata(:,1);
     fti = fdata(:, 3);
     
@@ -33,7 +33,7 @@ end
 
 % Carga los NS
 for i=1:n
-    fdata = load(strcat("sismos/resultados-roca/",strcat(archivos(i), "-ns.txt")));
+    fdata = load(strcat("sismos/resultados-sup/",strcat(archivos(i), "-ns.txt")));
     wi = fdata(:,1);
     fti = fdata(:, 3);
     
@@ -79,7 +79,7 @@ figure()
 hold off;
 
 % Grafica el analitico
-ftsbinterp = interp1(wftsb(:), ftsb(:), winterp(:), 'linear', 'extrap');
+ftmedido = interp1(wparte3c(:), ftparte3c(:), winterp(:), 'linear', 'extrap');
 plot(winterp, ftsbinterp, 'b', 'LineWidth', 1.0);
 hold on;
 grid on;
@@ -89,5 +89,5 @@ ylim([0, 12]);
 
 xlabel('$\omega$', 'interpreter', 'latex');
 ylabel('FT($\omega$)', 'interpreter', 'latex');
-title('Comparacion Funcion Transferencia Empirica / Analitica');
-legend({'FT Analitica', 'FT Empirica'}, 'Location', 'northeast')
+title('Comparacion Funcion Transferencia Empirica / Medido - Registro superficie');
+legend({'FT Medido', 'FT Empirica'}, 'Location', 'northeast')

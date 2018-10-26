@@ -1,0 +1,11 @@
+Para el desarrollo de esta pregunta se obtuvo la FFT del registro en la componente norte-sur y este-oeste para los registros tanto en roca como en superficie. Al igual que el caso anterior se consideró el promedio geométrico de los registros horizontales. \\
+
+Para eliminar la gran cantidad de ruido en la FFT, se utilizó una ventana de Tuckey con un ancho de 5\%, se corrigó por línea base, y se aplicó un filtro (Mean Filter) para suavizar la transformada. \\
+
+Con los $FFT_H$ de cada registro roca/superficie el cálculo de la función de transferencia empírica del sitio con respecto a la base comprende:
+
+\insertequation{FT = \frac{FFT_{H}^{\ suelo}}{FFT_{H}^{\ roca}}}
+
+En la Figura \ref{p3c} se ilustra el resultado obtenido. Como se puede observar existen sucesivos peaks para la amplificación en superficie. Para frecuencias mas grandes se tiene una menor amplificación.
+
+\insertimage[\label{p3c}]{p3c}{width=12cm}{Función de transferencia empírica del sitio con respecto a la base del depósito.}
