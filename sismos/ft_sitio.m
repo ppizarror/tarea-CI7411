@@ -1,7 +1,5 @@
 % Genera la curva de factor de transferencia empirica
-
-clear all; %#ok<CLALL> % Limpia las variables
-close all;
+ftsitio = figure;
 
 % Lista de archivos
 archivos = ["00-06-16", "04-09-07a", "04-09-07b", "04-09-08a", "04-09-08b", ...
@@ -41,8 +39,8 @@ plot(winterp, ftmean + ftstd, 'k--', 'LineWidth', 2.0);
 plot(winterp, ftmean - ftstd, 'k--', 'LineWidth', 2.0);
 
 % Limita los ejes
-xlim([0, 24]);
-ylim([0, 35]);
+xlim([0.5, 25]);
+ylim([0, 30]);
 
 % Frecuencia
 xlabel('$\omega$', 'interpreter', 'latex');

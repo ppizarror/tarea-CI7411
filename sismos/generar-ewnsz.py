@@ -38,6 +38,6 @@ def writedata(m, col):
             f.write('\n')
 
 
-writedata('-ew', 0)
+writedata('-ew', 2)
 writedata('-ns', 1)
-writedata('-z', 2)
+writedata('-z', 0)

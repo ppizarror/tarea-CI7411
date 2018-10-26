@@ -1,16 +1,22 @@
-function plt = plot_fa(fa, wmax, famax, plot_title, NPOINTS, plot_colorw, show_legend)
+function plt = plot_fa(fa, wmin, wmax, famax, plot_title, yaxis_label, logx, NPOINTS, plot_colorw, show_legend)
 %PLOT_FA Grafica la funcion del factor de amplificacion.
 %
-%   plot = plot_fa(fa, wmax, famax, 'Plot title');
-%   plot = plot_fa(fa, wmax, famax, 'Plot title', 1000);
-%   plot = plot_fa(fa, wmax, famax, 'Plot title', 100, 'k');
-%   plot = plot_fa(fa, wmax, famax, 'Plot title', 100, 'k, false);
+%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title');
+%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title');
+%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', false);
+%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', true, 'FA');
+%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', true, 'FA', 1000);
+%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', true, 'FA', 100, 'k');
+%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', true, 'FA', 100, 'k, false);
 %
 % Parametros:
 %   fa              Funcion factor de amplificacion
+%   wmin            Frecuencia minima de evaluacion, eje x
 %   wmax            Frecuencia maxima de evaluacion, eje x
 %   famax           Valor maximo de FA en el eje y
 %   plot_title      Titulo del grafico
+%   yaxis_label     Label de la leyenda en y
+%   logx            Plot en semilogx
 %   NPOINTS         Numero de puntos de evaluacion, por defecto es 100
 %   plot_colorw     Color del grafico FA(w)
 %   show_legend     Muestra la leyenda
@@ -23,7 +29,13 @@ if ~exist('plot_colorw', 'var')
     plot_colorw = 'k';
 end
 if ~exist('show_legend', 'var')
-    show_legend = true;
+    show_legend = false;
+end
+if ~exist('yaxis_label', 'var')
+    yaxis_label = 'FA($\omega$)';
+end
+if ~exist('logx', 'var')
+    logx = false;
 end
 
 %% Genera el grafico
@@ -41,15 +53,21 @@ for i = 1:NPOINTS
 end
 
 %% Grafica
-plot(w, faw, plot_colorw);
+if ~logx
+    plot(w, faw, plot_colorw);
+else
+    semilogx(w, faw, plot_colorw);
+end
+hold on;
 grid on;
 title(plot_title);
 xlabel('$\omega$', 'interpreter', 'latex');
-ylabel('FA($\omega$)', 'interpreter', 'latex');
+ylabel(yaxis_label, 'interpreter', 'latex');
 ylim([-famax, famax]);
-xlim([0, wmax]);
+xlim([wmin, wmax]);
 if show_legend
-    legend({'FA(\omega)'}, 'Location', 'northwest')
+    legend({yaxis_label}, 'Location', 'northwest')
 end
+hold off;
 
 end
