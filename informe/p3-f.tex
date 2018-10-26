@@ -1,0 +1,45 @@
+En el programa DEEPSOIL se modeló el perfil de suelos detallado en la Tabla \ref{tab:p4d} utilizando una curva de degradación del material distinta para cada capa. Estas curvas fueron obtenidas a partir de la literatura, proponiendo los siguientes modelos para cada uno de los estratos:
+
+\begin{table}[H]
+	\centering
+	\caption{Modelos utilizados para cada estrato.}
+	\itemresize{0.8}{
+		\begin{tabular}{|c|P{8em}|P{11.5em}|P{11em}|}
+			\hline
+			\multicolumn{1}{|P{3em}|}{\textbf{N° Layer}} & \textbf{Suelo} & \textbf{Fuente curva de degradación de rigidez} & \textbf{Plasticidad promedio estrato fino} \bigstrut\\
+			\hline
+			1     & Arena limosa pobremente graduada & Seed \& Idriss. 1991 (Promedio) & - \bigstrut\\
+			\hline
+			2     & Arcilla y limo de baja plasticidad & Vucetic \& Dobry. 1991 & \multicolumn{1}{c|}{15} \bigstrut\\
+			\hline
+			3     & Arena limosa pobremente graduada & Seed \& Idriss. 1991 (Promedio) & - \bigstrut\\
+			\hline
+			4     & Arcilla y limo de baja plasticidad & Vucetic \& Dobry. 1991 & \multicolumn{1}{c|}{18} \bigstrut\\
+			\hline
+			5     & Grava y arena pobremente graduada & Rollins. 1998 & - \bigstrut\\
+			\hline
+			6     & Arcilla y limo de baja plasticidad & Vucetic \& Dobry. 1991 & \multicolumn{1}{c|}{15} \bigstrut\\
+			\hline
+			7     & Arcilla de alta plasticidad & -     & \multicolumn{1}{c|}{20} \bigstrut\\
+			\hline
+			8     & Arena limosa con arcilla pobremente graduada & -     & - \bigstrut\\
+			\hline
+		\end{tabular}
+	}
+\end{table}
+
+En la Figura \ref{curvag} se ilustra la curva de degradación utilizada para la Arena y Arcilla (estratos 7 y 8 respectivamente).
+
+\insertimage[\label{curvag}]{curvag}{width=7cm}{Curva de degradación utilizada para la Arena.}
+
+\newp El perfil modelado en DEEPSOIL se ilustra en la Figura \ref{modelodpsoil}.
+
+\insertimage[\label{modelodpsoil}]{modelodeepsoil}{width=3.5cm}{Perfil de los estratos de Llolleo en DEEPSOIL: Total profile Depth: $61m$, Natural Freq. of profile: $1.18Hz$, Natural period: $0.85s$.}
+
+Utilizando los registros sísmicos en la roca basal se corrió el modelo obteniendo la función de transferencia de fourier del programa para cada registro. Los resultados de todos los registros fueron graficados con matlab, en donde se calculó el promedio y la desviación estándar (Figura \ref{ftemproca}).
+
+\insertimage[\label{ftemproca}]{p3f-emp}{width=11cm}{Función de transferencia empírica calculada a partir del método lineal equivalente para el caso de los registros sísmicos en la base.}
+
+Al contrastar la función de transferencia empírica (Figura \ref{ftemproca}) con la analítica (Figura \ref{p3dimg}.a) se puede observar que tanto el modelo analizado con la teoría viscoelástica (código pregunta 2) y con el perfil obtenido a partir del modelo lineal equivalente (DEEPSOIL) presentan amplificaciones en frecuencias similares.
+
+\insertimage{p3f-comp}{width=11cm}{Comparación resultados analíticos y empíricos para el registro sísmico en roca basal.}

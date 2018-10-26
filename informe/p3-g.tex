@@ -1,0 +1,9 @@
+Utilizando el mismo modelo de capas en el programa DEEPSOIL se calculó la función de trasferencia de fourier para los registros sísmicos en afloramiento rocoso, correspondientes al terremoto del Maule del 2010. En la Figura \ref{p3gemp} se ilustra el resultado obtenido con el programa, junto con la curva promedio y la de desviación estándar.
+
+\insertimage[\label{p3gemp}]{p3g-emp}{width=12cm}{Función de transferencia empírica calculada a partir del método lineal equivalente pra el caso de los registros sísmicos en la base.}
+
+Es claro ver que el sismo en afloramiento rocoso presenta una amplificación para frecuencias bajas (propias de un sistema rígido), para frecuencias mayores no existe la energía suficiente como para hacer excitar el medio. \\
+
+Al comparar la función de transferencia empírica con la analítica (obtenida del código viscoelástico \texttt{u\_velt}) se obtuvo el gráfico de la Figura \ref{p3gcomp}. Al realizar un análisis sobre los resultados obtenidos es claro ver que para frecuencias bajas tanto el caso analítico como empírico amplifican para frecuencias bajas en torno a $1Hz$ (entre $0.88Hz$ y $1.28Hz$), sin embargo para frecuencias mayores el sismo no fue capaz de otorgar mayor energía al sistema, por tanto se obtuvieron menores desplazamiento en superficie, disminuyendo así el factor de transferencia.
+
+\insertimage[\label{p3gcomp}]{p3g-comp}{width=12cm}{Comparación resultados analíticos y empíricos para el registro sísmico en afloramiento rocoso.}
