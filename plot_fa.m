@@ -1,13 +1,13 @@
-function plt = plot_fa(fa, wmin, wmax, famax, plot_title, yaxis_label, logx, NPOINTS, plot_colorw, show_legend)
+function [w,faw] = plot_fa(fa, wmin, wmax, famin, famax, plot_title, yaxis_label, logx, NPOINTS, plot_colorw, show_legend)
 %PLOT_FA Grafica la funcion del factor de amplificacion.
 %
-%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title');
-%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title');
-%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', false);
-%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', true, 'FA');
-%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', true, 'FA', 1000);
-%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', true, 'FA', 100, 'k');
-%   plot = plot_fa(fa, wmin, wmax, famax, 'Plot title', true, 'FA', 100, 'k, false);
+%   plot = plot_fa(fa, wmin, wmax, famin, famax, 'Plot title');
+%   plot = plot_fa(fa, wmin, wmax, famin, famax, 'Plot title');
+%   plot = plot_fa(fa, wmin, wmax, famin, famax, 'Plot title', false);
+%   plot = plot_fa(fa, wmin, wmax, famin, famax, 'Plot title', true, 'FA');
+%   plot = plot_fa(fa, wmin, wmax, famin, famax, 'Plot title', true, 'FA', 1000);
+%   plot = plot_fa(fa, wmin, wmax, famin, famax, 'Plot title', true, 'FA', 100, 'k');
+%   plot = plot_fa(fa, wmin, wmax, famin, famax, 'Plot title', true, 'FA', 100, 'k, false);
 %
 % Parametros:
 %   fa              Funcion factor de amplificacion
@@ -63,7 +63,7 @@ grid on;
 title(plot_title);
 xlabel('$\omega$', 'interpreter', 'latex');
 ylabel(yaxis_label, 'interpreter', 'latex');
-ylim([-famax, famax]);
+ylim([famin, famax]);
 xlim([wmin, wmax]);
 if show_legend
     legend({yaxis_label}, 'Location', 'northwest')

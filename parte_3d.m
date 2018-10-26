@@ -7,14 +7,13 @@ H = [6, 5, 2, 8, 5, 8, 11, 16]; % Altura de cada estrato (m)
 E1 = 1; % Valor cualquiera
 
 %% Genera los factores FTsb, FTsa
-ft_sa = fa_velt_sa(rho, Vs, D, H, E1); % ft_sa(w)
 ft_sb = fa_velt_sb(rho, Vs, D, H, E1); % ft_sb(w)
+ft_sa = fa_velt_sa(rho, Vs, D, H, E1); % ft_sa(w)
 
 %% Grafica los factores
-plot_fa(ft_sb, 0.05, 50, 15, 'Factor Transferencia Superficie-Roca Basal', 'FTsb', false);
-plot_fa(ft_sa, 0.05, 50, 15, 'Factor Transferencia Superficie-Afloramiento Rocoso', 'FTsa', false);
+[wftsb, ftsb] = plot_fa(ft_sb, 0.05, 25, 0, 12, 'Funcion Transferencia Superficie-Roca Basal', 'FTsb', false);
+[wftsa, ftsa] = plot_fa(ft_sa, 0.05, 25, 0, 8, 'Funcion Transferencia Superficie-Afloramiento Rocoso', 'FTsa', false);
 hold on;
-ftsitio
 dh = 0.2;
 dt = 0.002;
 

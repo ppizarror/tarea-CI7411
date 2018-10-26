@@ -1,4 +1,4 @@
-function [w, ft] = ft_gen(ew_s, ns_s, z_s, ew_r, ns_r, z_r, filtro)
+function [w, ft] = ft_gen(ew_s, ns_s, ew_r, ns_r, filtro)
 %FT_GEN Genera la curva de funcion de transferencia para dos registros, en
 %superficie y roca
 
@@ -9,13 +9,9 @@ data_ew(1, :) = []; % Elimina la primera linea
 data_ns = load(ns_s);
 data_ns(1, :) = []; % Elimina la primera linea
 
-data_z = load(z_s);
-data_z(1, :) = []; % Elimina la primera linea
-
 % Se guarda en columnas separadas tiempo y registro
 ns_acc = data_ns(:, 2);
 ew_acc = data_ew(:, 2);
-z_acc = data_z(:, 2);
 
 ns_t = data_ns(:, 1);
 
@@ -26,7 +22,6 @@ f = 1 / dt;
 % Correccion por linea base
 ns_acc = detrend(ns_acc, 0);
 ew_acc = detrend(ew_acc, 0);
-z_acc = detrend(z_acc, 0);
 
 % Crea base para FFT
 t_len = floor(length(ns_t));
@@ -44,22 +39,18 @@ w_suelo = freq_arr(1:t_len_h);
 % Tuckey window
 ns_itr = ns_acc .* tuckey;
 ew_itr = ew_acc .* tuckey;
-z_itr = z_acc .* tuckey;
 
 % FFT
 ns_fft_itr = fft(ns_itr);
 ew_fft_itr = fft(ew_itr);
-z_fft_itr = fft(z_itr);
 
 % Selecciona mitad de los datos
 fft_ns = ns_fft_itr(1:t_len_h);
 fft_ew = ew_fft_itr(1:t_len_h);
-fft_z = z_fft_itr(1:t_len_h);
 
 % FFT para suelo
 fft_ns_suelo = medfilt1(abs(fft_ns), filtro);
 fft_ew_suelo = medfilt1(abs(fft_ew), filtro);
-fft_z_suelo = medfilt1(abs(fft_z), filtro); %#ok<NASGU>
 
 %% Genera la FFT para la roca
 data_ew = load(ew_r);
@@ -68,20 +59,15 @@ data_ew(1, :) = []; % Elimina la primera linea
 data_ns = load(ns_r);
 data_ns(1, :) = []; % Elimina la primera linea
 
-data_z = load(z_r);
-data_z(1, :) = []; % Elimina la primera linea
-
 % Se guarda en columnas separadas tiempo y registro
 ns_acc = data_ns(:, 2);
 ew_acc = data_ew(:, 2);
-z_acc = data_z(:, 2);
 
 ns_t = data_ns(:, 1);
 
 % Correccion por linea base
 ns_acc = detrend(ns_acc, 0);
 ew_acc = detrend(ew_acc, 0);
-z_acc = detrend(z_acc, 0);
 
 % Crea base para FFT
 t_len = floor(length(ns_t));
@@ -99,22 +85,18 @@ w_roca = freq_arr(1:t_len_h);
 % Tuckey window
 ns_itr = ns_acc .* tuckey;
 ew_itr = ew_acc .* tuckey;
-z_itr = z_acc .* tuckey;
 
 % FFT
 ns_fft_itr = fft(ns_itr);
 ew_fft_itr = fft(ew_itr);
-z_fft_itr = fft(z_itr);
 
 % Selecciona mitad de los datos
 fft_ns = ns_fft_itr(1:t_len_h);
 fft_ew = ew_fft_itr(1:t_len_h);
-fft_z = z_fft_itr(1:t_len_h);
 
 % FFT para suelo
 fft_ns_roca = medfilt1(abs(fft_ns), filtro);
 fft_ew_roca = medfilt1(abs(fft_ew), filtro);
-fft_z_roca = medfilt1(abs(fft_z), filtro); %#ok<NASGU>
 
 %% Genera el promedio para ambos fft
 fft_h_suelo = zeros(1, length(w_suelo));

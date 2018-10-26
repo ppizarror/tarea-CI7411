@@ -1,7 +1,5 @@
+%% PARTE 3.B
 % Genera H/V de los registros sísmicos en superficie
-
-clear all; %#ok<CLALL> % Limpia las variables
-close all;
 
 % Lista de archivos
 archivos = ["00-06-16", "04-09-07a", "04-09-07b", "04-09-08a", "04-09-08b", ...

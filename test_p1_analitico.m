@@ -9,7 +9,7 @@ ab = 10; % Amplitud basal (m)
 
 %% Genera u(z,t)
 u = u_elt(Vs, H, ab, T);
-ft = fa_elt(Vs, H);
+fa = fa_elt(Vs, H);
 fprintf('P1 Analitico, frecuencia: %.4f\n', 2*pi/T);
 fprintf('P1 Analitico, u(0,0): %.4f\n', u(0, 0));
 fprintf('P1 Analitico, u(H,0): %.4f\n', u(H, 0));
@@ -23,7 +23,7 @@ dh = 0.2;
 dt = 0.005;
 
 %% Crea el grafico del factor de amplificacion
-plot_fa(fa, 45, 10, 'Factor Amplificacion');
+plot_fa(fa, 0, 45, -25, 25, 'Factor Amplificacion');
 
 %% Genera el grafico
 quake_elt(Vs, H, ab, T, dh, dt);

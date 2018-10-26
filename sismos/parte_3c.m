@@ -1,3 +1,4 @@
+%% PARTE 3.C
 % Genera la curva de factor de transferencia empirica
 ftsitio = figure;
 
