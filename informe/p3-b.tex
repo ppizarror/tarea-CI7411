@@ -2,7 +2,7 @@ Utilizando los registros sísmicos en superficie se calculó la razón espectral
 
 \insertequationanum{HV = \frac{\sqrt{FFT_{NS}^2 + FFT_{EW}^2}}{FFT_{Z}}}
 
-Un aspecto importante del cálculo es que, para eliminar la gran cantidad de ruido en la FFT, se utilizó una ventana de Tuckey con un ancho de 5\%, se corrigó por línea base, y se aplicó un filtro (Mean Filter) para suavizar la transformada. \\
+Un aspecto importante del cálculo es que, para eliminar la gran cantidad de ruido en la FFT, se utilizó una ventana de Tuckey con un ancho de 5\%, se corrigó por línea base, y se aplicó un filtro (Mean Filter) para suavizar la transformada, con un ancho de 300 puntos \footnote{Valor de la ventana de filtro obtenido de forma netamente empírica.}. \\
 
 En la Figura \ref{p3b-hv} se ilustra el resultado obtenido con Matlab. La línea gruesa corresponde al promedio, las líneas segmentadas indican la desviación estándar.
 

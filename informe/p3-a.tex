@@ -1,6 +1,6 @@
 A partir de las mediciones de vibraciones ambientales en superficie de la ciudad de Llolleo (tanto en ciudad como en ubicaciones aledañas) se calculó la razón espectral H/V tanto de cada medición como el promedio del conjunto. \\
 
-Este cálculo se hizo a partir del programa Geopsy, el cual carga los registros, aplica filtros, selecciona ventanas de medición (de 30 segundos, Tuckey window con ancho de 5\%), suaviza la FFT (Konno \& Ohmachi) y calcula el H/V \footnote{H/V, según lo estudiado por Nakamura, establece la razón espectral entre las componentes horizonales y verticales de un registro sísmico de un suelo. Cuando H/V es superior a 2 para un cierto rango de frecuencias se entiende que hay amplificación sísmica, dado un fuerte contraste de impedancias. En roca, por otra parte, H/V debe oscilar entre 1 y 2.}.
+Este cálculo se hizo a partir del programa Geopsy, el cual carga los registros, aplica filtros, selecciona ventanas de medición (de 30 segundos, Tuckey window con ancho de 5\%), suaviza la FFT (Konno \& Ohmachi) \cite{ref3} y calcula el H/V \footnote{H/V, según lo estudiado por Nakamura \cite{ref2}, establece la razón espectral entre las componentes horizonales y verticales de un registro sísmico de un suelo. Cuando H/V es superior a 2 para un cierto rango de frecuencias se entiende que hay amplificación sísmica, dado un fuerte contraste de impedancias. En roca, por otra parte, H/V debe oscilar entre 1 y 2.}.
 
 \insertimage{p3a-selventana}{width=7cm}{Selección automática de las ventanas de medición, Geopsy.}
 
@@ -27,4 +27,4 @@ En la Figura \ref{p3a-hv-city} se puede observar el H/V para el registro de la c
 
 Como se puede observar en las figuras anteriores el H/V en la ciudad de Llolleo indica una clara amplificación en torno a la frecuencia de $2Hz$, con lo cual da a entender un claro contraste de impedancias entre roca basal y superficie. \\
 
-Por otro lado, como se puede apreciar en la Figura \ref{p3a-hv-prom}.b el promedio de H/V en las cercanías de la ciudad de Llolleo también indica un claro contraste de impedancias, sin embargo presenta una frecuencia ligeramente superior, en torno a los $2.2Hz$. Esto ocurre principalmente porque los suelos son distintos entre ambos sitios de medición.
+Por otro lado, como se puede apreciar en la Figura \ref{p3a-hv-prom}.b el promedio de H/V en las cercanías de la ciudad de Llolleo también indica un claro contraste de impedancias, sin embargo presenta una frecuencia ligeramente superior, en torno a los $2.2Hz$. Esto ocurre principalmente porque los suelos son ligeramente distintos entre ambos sitios de medición, a pesar de estar cerca.

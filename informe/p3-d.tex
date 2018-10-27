@@ -1,7 +1,6 @@
-Para resolver esta parte de la pregunta se tuvo que modelar el perfil de suelo utilizando el código programado en la pregunta 2 para un medio visco-elástico multicapa. Para ello se obtienen los datos a partir de la estatigrafía presentada por el artículo de Ramón Verdugo \textit{Amplification phenomena observed in downhole array records generated
-	on a subductive environment}, ilustrada en la Figura \ref{verdugolayer}.
+Para resolver esta parte de la pregunta se tuvo que modelar el perfil de suelo utilizando el código programado en la pregunta 2 para un medio visco-elástico multicapa. Para ello se obtuvieron los datos a partir de la estatigrafía presentada por el artículo de Ramón Verdugo \cite{ref4}, ilustrada en la Figura \ref{verdugolayer}.
 
-\insertimage[\label{verdugolayer}]{layer-verdugo}{height=15cm}{Estatigrafía de Llolleo.}
+\insertimage[\label{verdugolayer}]{layer-verdugo}{height=15cm}{Estatigrafía del suelo de Llolleo.}
 
 \newpage
 Si bien se recomienda utilizar un sistema de cuatro capas para modelar el perfil de suelos se decidió finalmente utilizar un total de 8 capas, ya que esto permite obtener una solución más parecida a la realidad sin mayor esfuerzo. En la Tabla \ref{tab:p4d} se detallan las capas utilizadas.
@@ -37,8 +36,8 @@ Si bien se recomienda utilizar un sistema de cuatro capas para modelar el perfil
 
 Es importante mencionar que para entregar un peso unitario para cada estrato, se recurrió a correlaciones con el N-SPT, eligiendo valores entre los rangos presentados a continuación:
 
-\insertimage{nspt1}{width=13cm}{Correlación SPT - Peso unitario suelo (Suelos granulares).}
-\insertimage{nspt2}{width=13cm}{Correlación SPT - Peso unitario suelo (Suelos cohesivos).}
+\insertimageboxed{nspt1}{width=11cm}{0.5}{Correlación SPT - Peso unitario suelo (Suelos granulares).}
+\insertimageboxed{nspt2}{width=11cm}{0.5}{Correlación SPT - Peso unitario suelo (Suelos cohesivos).}
 
 Con lo anterior y utilizando la derivación de la función programada \texttt{u\_velt} se obtuvo los parámetros $E_i$ y $F_i$ del suelo para cada uno de los $n$ estratos. En este sentido:
 
@@ -47,8 +46,8 @@ Con lo anterior y utilizando la derivación de la función programada \texttt{u\
 Evaluando con el sistema de capas:
 
 \begin{images}[\label{p3dimg}]{Funciones de transferencia para el medio visco-elástico del perfil de Llolleo.}
-	\addimage{p3d-ftsb}{width=7cm}{$FT_{sb}$.}
-	\addimage{p3d-ftsa}{width=7cm}{$FT_{sa}$.}
+	\addimage{p3d-ftsb}{width=7cm}{$FT_{sb}$}
+	\addimage{p3d-ftsa}{width=7cm}{$FT_{sa}$}
 \end{images}
 
 Como era esperado se puede observar en la Figura \ref{p3dimg} que el factor de transferencia posee mayores amplitudes dado el mayor contraste de impedancias.

@@ -53,9 +53,9 @@ end
 %% Genera curva mediana y desviacion estandar
 ftmean = zeros(1, length(fti));
 ftstd = zeros(1, length(fti));
-ftdata = zeros(1, n);
+ftdata = zeros(1, 2*n);
 for j=1:length(winterp)
-    for i=1:n % Carga los datos para ese i-frecuencia
+    for i=1:2*n % Carga los datos para ese i-frecuencia
         ftdata(i) = ft{i}(j);
     end
     ftmean(j) = mean(ftdata);
