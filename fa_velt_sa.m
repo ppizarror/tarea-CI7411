@@ -20,7 +20,7 @@ if length(H) ~= (n - 1)
 end
 
 %% Retorna funcion de omega
-ft = @(w) fa_velt_sb_w(rho, Vs, D, H, E1, n, 2*pi*w);
+ft = @(w) fa_velt_sb_w(rho, Vs, D, H, E1, n, w);
 
 end
 

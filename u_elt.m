@@ -30,7 +30,7 @@ cosval = cos(w*H/Vs);
 if cosval == 0
     error('El periodo de la onda genera resonancia');
 elseif abs(cosval) < 1e-15
-    warning('El periodo de la onda está cerca de la resonancia, posible inestabilidad numérica');
+    warning('El periodo de la onda esta cerca de la resonancia, posible inestabilidad numerica');
 end
 
 %% Retorna la funcion de desplazamiento

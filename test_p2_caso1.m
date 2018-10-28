@@ -13,8 +13,21 @@ T = 0.3;
 % rho = [15, 15, 15, 15, 27];
 % D = [0.03, 0.03, 0.03, 0.03, 0.005];
 
+
+%% Muestra e,f
+[e,f] = calc_ef(rho, Vs, D, H, E1, T);
+disp(e);
+disp(f);
+
 dh = 0.2;
 dt = 0.002;
+
+%% Crea el grafico del factor de amplificacion
+u = u_velt(rho,Vs,D,H,E1,T);
+fa = fa_velt_sb(rho,Vs,D,H,E1);
+fa(1)
+plot_fa(fa, 0, 100, -25, 25, 'Factor Amplificacion');
+fprintf('Freq. %f', 2*pi/T);
 
 %% Genera el grafico
 quake_velt(rho, Vs, D, H, E1, T, dh, dt);
